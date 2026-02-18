@@ -11,8 +11,8 @@
 
 ### **Day 1: The Async/Await Truth**
 **Date:** Week 1, Day 1  
-**Duration:** 2 hours (adjustable based on pace)  
-**Status:** 🟡 In Progress
+**Duration:** 2 hours  
+**Status:** ✅ Completed
 
 #### **🎯 Learning Objective**
 Understand why `async/await` exists and how it prevents race conditions in browser automation.
@@ -155,19 +155,136 @@ test('login test', async ({ page }) => {  // ← Added async and { page }
 
 ---
 
-### **Day 2: TypeScript Basics for QA**
-**Status:** ⏳ Not Started
+### **Day 2: TypeScript Basics & Your First Loop**
+**Date:** Week 1, Day 2  
+**Duration:** 4 hours  
+**Status:** ✅ Completed
 
-#### **🎯 Learning Objective**
-TBD - Will cover variables, types, and CLAUDE.md standards
+#### **🎯 Learning Objectives**
+1. Understand `const` vs `let` (immutable vs mutable variables)
+2. Master the Trinity structure: Locator → Action → Assertion
+3. Understand arrays (`string[]` = multiple text values)
+4. Write your first `for` loop to test with multiple users
+
+#### **🧠 Key Concepts Learned**
+
+**Variables: const vs let**
+```typescript
+const baseURL: string = 'https://example.com';  // ← Can't change
+let userName: string = 'Alice';  // ← Can change later
+userName = 'Bob';  // ← This works!
+```
+
+**The Trinity Framework:**
+- **Locator** = Find the element (e.g., `page.getByRole('button')`)
+- **Action** = Do something (e.g., `.click()`, `.fill()`, `.goto()`)
+- **Assertion** = Validate result (e.g., `expect(...).toBeVisible()`)
+
+**Important:** Not every test follows Locator→Action→Assertion in that order. You can mix them:
+- `page.goto()` = **Action** (not a locator!)
+- Then Locator→Action→Assertion for form interactions
+
+**Arrays:**
+```typescript
+const users: string[] = ['Alice', 'Bob', 'Charlie'];  // ← Multiple values
+```
+
+**Your First Loop:**
+```typescript
+for (const userName of users) {
+  // This code runs 3 times, once for each user
+  await page.getByPlaceholder('First Name').fill(userName);
+}
+```
+
+#### **💡 Key Insight: Unique Emails**
+
+You discovered why we need unique emails for each registration:
+```typescript
+const userEmail: string = `${userName.toLowerCase()}_${Date.now()}@test.com`;
+```
+
+**For Alice:**
+- `userName.toLowerCase()` = "alice"
+- `Date.now()` = 1770414802280 (unique timestamp)
+- Result: `alice_1770414802280@test.com`
+
+**For Bob:**
+- Result: `bob_1770414802999@test.com` (different timestamp!)
+
+#### **🛠️ Practical Exercise: Loop Test**
+
+**File created:** `tests/bootcamp/day2_loop_users.spec.ts`
+
+This test registers 3 users (Alice, Bob, Charlie) using a `for` loop, demonstrating:
+- How loops reduce code repetition
+- How to create unique data per iteration
+- How to structure tests with CLAUDE.md format (PLAN, WORK, CHECK)
+
+#### **🤝 Working with Claude Code**
+
+**Learned how to prompt Claude Code effectively:**
+
+**Good prompt structure:**
+```
+claude create a test file at [path] that [does what].
+Fill these fields:
+- Field 1 (with what data)
+- Field 2 (with what data)
+Then [action]. Verify [expected result].
+Follow CLAUDE.md format.
+```
+
+**Key insight:** More specific prompts = better generated code, but Claude Code is smart enough to fill in reasonable defaults.
+
+#### **📚 Modern Test Management Tools**
+
+**Discovered the 2026 QA ecosystem:**
+
+**Top 3 Tools:**
+1. **Jira + Xray** (most popular, 10,000+ customers)
+2. **Jira + Zephyr** (close second, 70+ reports)
+3. **TestRail** (standalone or Jira plugin)
+
+**Key workflow:**
+1. Write test cases in Jira/Xray (not Excel!)
+2. Link test cases → User Stories → Requirements
+3. Execute tests (manual or automated Playwright)
+4. Log defects in Jira
+5. Track test coverage
+6. Generate reports for stakeholders
+
+**When we'll learn this:** Week 6 (Jira/Xray integration with CI/CD)
+
+**Old tools are dead:** Mercury suite (QC/QTP/LoadRunner) replaced by Jira ecosystem
+
+#### **✅ Completion Checklist**
+- [x] Understand const vs let
+- [x] Master the Trinity (Locator/Action/Assertion)
+- [x] Understand arrays (`string[]`)
+- [x] Write first loop test
+- [x] Learn to prompt Claude Code effectively
+- [x] Understand modern test management ecosystem
+
+#### **🎤 Interview Prep from Day 2**
+
+**Q: "How do you manage test cases and defects?"**
+
+**Good Answer:**
+> "I use Jira with Xray for test case management. I write test cases in Xray, link them to user stories for traceability, execute them either manually or through automated Playwright scripts, and track defects directly in Jira. This gives full visibility from requirements through test execution to defect resolution."
+
+**Q: "How would you test registration with multiple users?"**
+
+**Good Answer:**
+> "I'd use a data-driven approach with a loop. I'd create an array of test users, then iterate through them with a for loop. For each user, I'd generate unique data like email addresses using timestamps to avoid conflicts. This reduces code duplication and makes the test maintainable."
 
 ---
 
-### **Day 3: Arrays & Loops**
+### **Day 3: Deep Dive into Loops & Arrays**
 **Status:** ⏳ Not Started
 
 #### **🎯 Learning Objective**
-TBD - Will cover iteration patterns for test data
+TBD - Will cover loop syntax variations and array methods
 
 ---
 

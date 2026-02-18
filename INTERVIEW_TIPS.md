@@ -65,7 +65,84 @@
 
 ## TypeScript & Type Safety
 
-*Interview questions will be added in Day 2*
+### **Q4: Explain the difference between `const` and `let` in TypeScript.**
+
+**❌ Bad Answer:**
+> "Const is for constants and let is for variables."
+
+**✅ Good Answer:**
+> "`const` creates an immutable binding—once assigned, the variable cannot be reassigned. `let` creates a mutable binding that can be reassigned. In testing, I use `const` for test data that shouldn't change like URLs or expected values, and `let` for data that evolves during the test."
+
+**⭐ Great Answer:**
+> "In TypeScript, `const` prevents reassignment of the binding, making code more predictable and preventing accidental overwrites. For example, test configuration like base URLs should be `const` to prevent modification. `let` is used when values need to change, like iterating through test data. Note that `const` doesn't make objects immutable—you can still modify object properties or push to arrays declared with `const`."
+
+---
+
+### **Q5: What are arrays in TypeScript and why do we use them in testing?**
+
+**✅ Good Answer:**
+> "An array is a collection of values of the same type. In TypeScript, we denote arrays with square brackets, like `string[]` for an array of strings. In testing, arrays are essential for data-driven testing—storing multiple test users, products, or scenarios that we iterate through with loops."
+
+**⭐ Great Answer:**
+> "Arrays store multiple values of the same type. The syntax `string[]` means 'array of strings'. In QA automation, arrays enable data-driven testing—I can test login with 10 different users by putting them in an array and looping through it, rather than writing 10 separate tests. This makes tests more maintainable and reduces code duplication. Arrays also integrate well with test reporting—I can track which data set passed or failed."
+
+---
+
+## Loops & Data-Driven Testing
+
+### **Q6: How would you test the same functionality with multiple sets of data?**
+
+**❌ Bad Answer:**
+> "I'd copy-paste the test and change the data each time."
+
+**✅ Good Answer:**
+> "I'd use a data-driven approach with arrays and loops. Create an array of test data, then use a `for...of` loop to iterate through each dataset, running the same test logic with different inputs. This keeps the code DRY (Don't Repeat Yourself)."
+
+**⭐ Great Answer:**
+> "I'd implement data-driven testing using TypeScript arrays and loops. For example, testing user registration with multiple users: create an array of user objects containing test data, use a `for...of` loop to iterate through them, and generate unique values like email addresses using timestamps to avoid conflicts. This approach is maintainable—when test logic changes, I update one place instead of multiple test copies. It also integrates well with test reporting frameworks that can show results per dataset."
+
+**Example:**
+```typescript
+const users: string[] = ['Alice', 'Bob', 'Charlie'];
+for (const userName of users) {
+  const uniqueEmail = `${userName.toLowerCase()}_${Date.now()}@test.com`;
+  // Execute test with this user
+}
+```
+
+---
+
+## Test Management Tools
+
+### **Q7: What test management tools have you used?**
+
+**❌ Bad Answer:**
+> "Excel spreadsheets for tracking test cases."
+
+**✅ Good Answer:**
+> "I'm currently working with Jira integrated with Xray for test case management. I write test cases in Xray, link them to user stories for requirements traceability, execute tests through Playwright automation, and track defects in Jira. This provides end-to-end visibility from requirements through execution."
+
+**⭐ Great Answer:**
+> "I use Jira with Xray as my test management platform. My workflow includes: writing detailed test cases in Xray with preconditions and expected results, linking them to Jira user stories for bidirectional traceability, executing tests both manually and through Playwright automation which reports results back to Xray, and creating defects linked to failed test executions. I also leverage Xray's test coverage reports to ensure all requirements have test coverage, and use test execution reports for sprint retrospectives. Previously at IBM, we used Quality Center, but the modern Jira ecosystem provides better integration with agile development workflows."
+
+**Follow-up they might ask:**
+- "How do you link automated tests to test cases?"
+- "What metrics do you track in test management tools?"
+
+---
+
+## AI & Automation
+
+### **Q8: How do you use AI in your QA workflow?**
+
+**❌ Bad Answer:**
+> "I don't really use AI for testing."
+
+**✅ Good Answer:**
+> "I use AI tools like Claude Code to accelerate test script generation. I provide detailed prompts describing what the test should do, including specific fields to fill and validation points, and the AI generates the Playwright script structure. I then review and refine the generated code to ensure it meets quality standards and follows our coding conventions."
+
+**⭐ Great Answer:**
+> "I use AI throughout my testing workflow in several ways: First, for test script generation—I prompt AI tools like Claude Code with test case requirements and it generates Playwright TypeScript scaffolding, which I then review and customize. Second, for test data generation—AI helps create realistic test data sets and edge cases I might not have considered. Third, for debugging—when tests fail, I use AI to analyze error logs and suggest fixes. However, I always validate AI-generated code against our standards (proper locators, type safety, error handling) and never blindly trust AI output. The key is using AI to augment my QA expertise, not replace it."
 
 ---
 
