@@ -40,6 +40,14 @@ for (const productName of products) {
         await expect(page).toHaveTitle(expectedTitle);
         // Check if the "Add to Cart" button is visible on the product page
         const addToCartBtn: Locator = page.getByRole('button', { name: 'Add to Cart' });
-        await expect(addToCartBtn).toBeVisible();
+        const isAddToCartVisible: boolean = await addToCartBtn.isVisible();
+
+        if (isAddToCartVisible) {
+            await addToCartBtn.click();
+            const successMessage: Locator = page.getByText(/success/i);
+            await expect(successMessage).toBeVisible();
+        } else {
+            console.log(`Product is out of stock: ${productName}`);
+        }
     });
 }

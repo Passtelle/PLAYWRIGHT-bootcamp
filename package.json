@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:day3": "npx playwright test tests/bootcamp/day3_strict_orders.spec.ts --headed",
+    "test:all": "npx playwright test"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
