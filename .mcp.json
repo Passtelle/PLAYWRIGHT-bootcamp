@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sqlite": {
+      "command": "npx.cmd",
+      "args": ["-y", "@pollinations/mcp-server-sqlite", "C:/Users/pass_/Documents/PLAYWRIGHT-bootcamp/hotel_backend.db"]
+    }
+  }
+}

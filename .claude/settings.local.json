@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:automationintesting.online)",
+      "WebSearch",
+      "mcp__sqlite__execute_query",
+      "WebFetch(domain:parabank.parasoft.com)",
+      "Bash(npx tsc:*)",
+      "Bash(npx playwright:*)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:www.qaplayground.com)",
+      "Bash(code:*)",
+      "Bash(where code:*)",
+      "Bash(\"C:\\\\Users\\\\pass_\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\bin\\\\code.cmd\" --install-extension shd101wyy.markdown-preview-enhanced 2>&1)",
+      "Bash($env:NODE_TLS_REJECT_UNAUTHORIZED='0')",
+      "Bash(\"C:\\\\Users\\\\pass_\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\bin\\\\code.cmd\" --install-extension shd101wyy.markdown-preview-enhanced)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 \"C:\\\\Users\\\\pass_\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\bin\\\\code.cmd\" --install-extension shd101wyy.markdown-preview-enhanced 2>&1)",
+      "Bash(powershell -Command \"$env:NODE_TLS_REJECT_UNAUTHORIZED='0'; & 'C:\\\\Users\\\\pass_\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\bin\\\\code.cmd' --install-extension shd101wyy.markdown-preview-enhanced\" 2>&1)",
+      "Bash(powershell -Command \"[System.Environment]::SetEnvironmentVariable\\('NODE_TLS_REJECT_UNAUTHORIZED', '0'\\); & 'C:\\\\Users\\\\pass_\\\\AppData\\\\Local\\\\Programs\\\\Microsoft VS Code\\\\bin\\\\code.cmd' --install-extension shd101wyy.markdown-preview-enhanced\" 2>&1)",
+      "WebFetch(domain:reqres.in)",
+      "WebFetch(domain:dummyjson.com)",
+      "Bash(cp:*)",
+      "WebFetch(domain:api.coingecko.com)",
+      "WebFetch(domain:www.coingecko.com)",
+      "WebFetch(domain:coincap.io)",
+      "WebFetch(domain:etherscan.io)",
+      "WebFetch(domain:docs.coingecko.com)",
+      "WebFetch(domain:docs.etherscan.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(gh repo:*)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "sqlite"
+  ]
+}

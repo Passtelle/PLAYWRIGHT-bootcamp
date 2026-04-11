@@ -35,4 +35,8 @@ coverage/
 
 # API Token JIRA
 node_modules/
-.env 
+.env
+
+# Project files to ignore
+hotel_backend.db
+Courses-Notes.odt
