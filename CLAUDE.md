@@ -19,3 +19,34 @@
   1. // 🏗️ THE PLAN (Data & Variables)
   2. // 🎬 THE WORK (Actions)
   3. // ✅ THE CHECK (Assertions)
+
+## 5. API Test Prompt Template
+When generating API tests, always use this prompt structure:
+
+```
+Generate: [Postman JS / Playwright TS / Gherkin BDD / any combination]
+
+TICKET: [BAS-X]
+ENDPOINT: [METHOD /path]
+TEST TYPE: [Happy Path / Negative / Boundary / Security] — [one-line description]
+
+TEST DATA:
+- field: "value"
+- field: "value"
+
+EXPECTED RESPONSE:
+- Status: [code]
+- Body fields:
+  * fieldName: [type] — [exact value OR "non-empty" OR "matches X"]
+- Response time: < 2000ms
+
+TYPESCRIPT INTERFACE FIELDS:
+- fieldName: type
+
+BASE URL: https://dummyjson.com
+STANDARDS: Follow CLAUDE.md (3-section structure, no `any`, explicit types, RegExp /i for text assertions)
+```
+
+**Postman style rules:** Arrow functions only (`() =>`), one `pm.test()` per assertion, no numbered comments.
+
+**Gherkin style rules:** Feature → Scenario → Given/When/Then/And. Include response time as final `And` step. Use data tables for request body fields.
