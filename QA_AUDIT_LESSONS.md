@@ -821,6 +821,152 @@ pm.test("Message is correct", function () {  // ← new pancake, same level
 
 ---
 
-**Last Updated:** Day 28 (April 10, 2026)
-**Total Lessons:** 15
+**Last Updated:** Day 31 (April 17, 2026)
+**Total Lessons:** 16
 **Next Lesson:** Added as we build — every real mistake is a lesson worth keeping.
+
+---
+
+## Lesson 16: The Three CC Audit Fixes (Day 30)
+
+**Date:** April 14-17, 2026
+**File:** `tests/api/user-retrieval.spec.ts` (BAS-7 - 404 test)
+**Scenario:** First AI-generated Playwright API test
+
+---
+
+### What AI Generated (First Version):
+```typescript
+test('[BAS-7] Non-existent user returns 404', async ({ request }) => {
+  const response = await request.get('https://dummyjson.com/users/99999');
+  const body = await response.json();
+  
+  expect(response.status()).toBe(404);
+  expect(body.message).toContain('not found');
+  expect(response.headers()['content-type']).toBeTruthy();
+});
+```
+
+### CC Senior Dev Identified 3 Issues:
+
+---
+
+### **Issue 1: Missing PLAN/WORK/CHECK Structure**
+
+**Problem:** Code mixed variables, actions, and assertions randomly.
+
+**Why It Matters:** Tests should be scannable. Anyone should find variables in one place, actions in another, assertions in a third.
+
+**The Fix:**
+```typescript
+test('[BAS-7] Non-existent user returns 404', async ({ request }) => {
+  
+  // 🏗️ THE PLAN (Data & Variables)
+  const BASE_URL: string = 'https://dummyjson.com';
+  const endpoint: string = '/users/99999';
+  const expectedStatus: number = 404;
+  const expectedMessage: RegExp = /not found/i;
+  const maxResponseTime: number = 2000;
+  
+  // 🎬 THE WORK (Actions)
+  const startTime: number = Date.now();
+  const response: APIResponse = await request.get(`${BASE_URL}${endpoint}`);
+  const responseTime: number = Date.now() - startTime;
+  const body: ErrorResponse = await response.json();
+  
+  // ✅ THE CHECK (Assertions)
+  expect(response.status()).toBe(expectedStatus);
+  expect(body.message).toMatch(expectedMessage);
+  expect(responseTime).toBeLessThan(maxResponseTime);
+});
+```
+
+---
+
+### **Issue 2: String Assertions Using .toContain()**
+
+**Problem:** `expect(body.message).toContain('not found')` — brittle, case-sensitive.
+
+**Why It Matters:** Copy changes break tests. "User Not Found" vs "user not found" vs "User not found" — all valid, all different strings.
+
+**The Fix:**
+```typescript
+// ❌ WRONG - exact case required
+expect(body.message).toContain('not found');
+
+// ✅ CORRECT - case-insensitive pattern
+expect(body.message).toMatch(/not found/i);
+```
+
+**The Rule:** For ANY text assertion, use `/pattern/i` RegExp, not plain strings.
+
+---
+
+### **Issue 3: Fake Response Time Check**
+
+**Problem:** 
+```typescript
+expect(response.headers()['content-type']).toBeTruthy();
+```
+This checks *if a header exists*, not *how long the request took*.
+
+**Why It Matters:** Performance SLAs. "API must respond in < 2 seconds" can't be verified by checking headers.
+
+**The Fix:**
+```typescript
+// ❌ WRONG - checking header existence, not speed
+expect(response.headers()['content-type']).toBeTruthy();
+
+// ✅ CORRECT - actual response time measurement
+const startTime: number = Date.now();
+const response = await request.get(url);
+const responseTime: number = Date.now() - startTime;
+expect(responseTime).toBeLessThan(2000);
+```
+
+---
+
+### The Complete Fixed Version:
+```typescript
+import { test, expect, APIResponse } from '@playwright/test';
+
+interface ErrorResponse {
+  message: string;
+}
+
+test('[BAS-7] Non-existent user returns 404', async ({ request }) => {
+  
+  // 🏗️ THE PLAN (Data & Variables)
+  const BASE_URL: string = 'https://dummyjson.com';
+  const endpoint: string = '/users/99999';
+  const expectedStatus: number = 404;
+  const expectedMessage: RegExp = /not found/i;
+  const maxResponseTime: number = 2000;
+  
+  // 🎬 THE WORK (Actions)
+  const startTime: number = Date.now();
+  const response: APIResponse = await request.get(`${BASE_URL}${endpoint}`);
+  const responseTime: number = Date.now() - startTime;
+  const body: ErrorResponse = await response.json();
+  
+  // ✅ THE CHECK (Assertions)
+  expect(response.status()).toBe(expectedStatus);
+  expect(body.message).toMatch(expectedMessage);
+  expect(responseTime).toBeLessThan(maxResponseTime);
+});
+```
+
+**Result:** Test passed 3/3 runs ✅
+
+---
+
+### 🎤 Interview Answer:
+
+> "When I reviewed the AI-generated test, I found three issues. First, the structure was messy — variables, actions, and assertions all mixed together. I reorganized it into Plan, Work, Check sections so anyone reviewing it can scan quickly. Second, it was using .toContain() for a text assertion, which breaks if the copy changes from 'not found' to 'Not Found'. I switched to a case-insensitive RegExp. Third, it was checking if a response header existed and calling that a performance test. That doesn't measure speed. I added Date.now() before and after the request to get actual response time and validated it's under 2 seconds. After those three fixes, the test was production-ready."
+
+---
+
+### Tags:
+`#ai-audit` `#playwright-api` `#response-time` `#regex-assertions` `#test-structure` `#cc-senior-dev`
+
+---
