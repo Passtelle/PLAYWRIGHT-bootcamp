@@ -31,49 +31,19 @@
 
 ---
 
-## Dream Role #1: Ondo Finance
+## North Star Target
 
-**Status:** Found April 9, 2026 — probably already filled, but use as north star target
+**Status (April 21, 2026):** Ondo Finance role is gone. Pivoting to broader hybrid QA Engineer search.
 
-**Company:** Ondo Finance (ondo.finance)
-- Global leader in tokenized treasuries and tokenized stocks/ETFs
-- Institutional-grade blockchain-enabled investment products
-- Backed by Founders Fund, Coinbase Ventures, Pantera Capital, Tiger Global
-- Founded by Goldman Sachs Digital Assets team alumni
-- Fully remote
+**Target profile:** Senior QA Engineer (hybrid Manual + Automation) at FinTech/blockchain/cybersecurity startups.
 
-**Role:** QA Engineer — Web & Frontend
+**Why hybrid is the right move:**
+- 10x more postings than pure QA Architect roles
+- 15 years IBM/Fiserv manual QA is a MAJOR differentiator — most automation candidates can't touch it
+- The story: "Enterprise-grade manual foundation + modern Playwright/API/CI/CD stack"
+- FinTech domain expertise from Fiserv = instant credibility
 
-**Why this is perfect:**
-- Build QA from scratch ("help establish foundations, tooling, and process") = Ingrid's exact career history
-- Blockchain/DeFi domain — connects to 3 years crypto trading background
-- Playwright as primary tool
-- Startup environment
-- Institutional finance angle = Fiserv background directly relevant
-
-**Required:**
-- Strong experience testing modern web applications ✅
-- Playwright ✅ (building)
-- Next.js testing ✅ (QA Playground is Next.js)
-- Jest ⏳ (1 day to learn basics — similar to Playwright runner)
-- Visual regression testing / Percy ⏳ (Week 5, 2 days away)
-- High-ownership mindset ✅
-- Startup comfort ✅
-- Complex system thinking ✅
-
-**Nice to have (rare skill, major differentiator):**
-- Web3 flows: wallet connections, signing, transactions ⏳ (MetaMask project planned)
-
-**Gap closure timeline:**
-| Gap | Plan | Timeline |
-|---|---|---|
-| Percy / visual regression | Week 5 (already planned) | ~April 18 |
-| Jest basics | 1 dedicated day | ~April 20 |
-| MetaMask / Web3 automation | Mini project | ~May 1 |
-| ISTQB | Week 7 | ~May 1 |
-| CI/CD pipeline | Week 5 | ~April 18 |
-
-**Apply target date:** Late May 2026
+**MetaMask/Web3:** Optional. If a Web3 company interviews → build it in 3 targeted days. Don't build speculatively.
 
 ---
 
@@ -89,12 +59,12 @@
 ## Portfolio Must-Haves Before Applying
 
 1. ✅ Playwright UI tests (POM architecture, multiple suites)
-2. ✅ API testing (Postman + Playwright TypeScript)
-3. ⏳ CI/CD pipeline (GitHub Actions) — Week 5
-4. ⏳ Visual regression with Percy — Week 5
-5. ⏳ MetaMask / Web3 automation mini project — May
-6. ⏳ ISTQB Foundation certification — Week 7
-7. ⏳ Jest basics — 1 day
+2. ✅ API testing (Postman + Playwright TypeScript — 6 BAS tests)
+3. ✅ Jira + Xray (test management, traceability, BDD)
+4. ⏳ E2E Banking flow (QA Playground — portfolio centerpiece)
+5. ⏳ CI/CD pipeline (GitHub Actions) — Week 5
+6. ⏳ ISTQB Foundation certification
+7. ⏳ MetaMask / Web3 — optional, only if Web3 interview opportunity arises
 
 ---
 

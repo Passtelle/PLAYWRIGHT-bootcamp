@@ -11,9 +11,11 @@
 ## 📊 Weekly Progress Tracker
 
 ### **Week 1: Foundation & Async Mastery**
-**Status:** 🟡 Completed 
+
+**Status:** 🟡 Completed
 **Grade:** TBD  
 **Focus Areas:**
+
 - ✅ Environment setup complete (Node v24, Playwright 1.58.1)
 - ✅ Async/Await mental model (COMPLETED)
 - ✅ Variables: const vs let (COMPLETED)
@@ -23,6 +25,7 @@
 - ⏳ Git workflow (pull/merge)
 
 **Daily Breakdown:**
+
 - **Day 1:** JavaScript Event Loop & Async/Await ✅
 - **Day 2:** Variables, Arrays, First Loop Test ✅
 - **Day 3:** Loops (for...of), search multiple products test, .first() for strict mode ✅
@@ -32,6 +35,7 @@
 - **Day 7:** Week 1 checkpoint & grade
 
 **Day 2 Accomplishments:**
+
 - ✅ Mastered const vs let distinction
 - ✅ Understood the Trinity: Locator/Action/Assertion
 - ✅ Created first loop test (day2_loop_users.spec.ts)
@@ -40,6 +44,7 @@
 - ✅ Understood unique data generation (timestamps for emails)
 
 **Day 3 Accomplishments:**
+
 - ✅ Understood for...of loop pattern (array → loop variable → actions)
 - ✅ Learned .first() to handle Playwright strict mode (multiple elements)
 - ✅ Created search test with loop (day3_search_products.spec.ts)
@@ -48,6 +53,7 @@
 - ✅ Understood that test flow isn't rigid (can mix Locator/Action/Assertion order)
 
 **Day 4 Accomplishments:**
+
 - ✅ Wrote complete loop from memory with 95% accuracy (forgot string[] vs string)
 - ✅ Learned Style A naming convention (productList/item pattern)
 - ✅ Mastered Git daily workflow (status → add → commit → push)
@@ -57,6 +63,7 @@
 - ✅ Cleaned up broken test files from repository
 
 **Day 5 Accomplishments:**
+
 - ✅ Created first Git branch (day5-typescript-practice)
 - ✅ Pushed branch to GitHub successfully
 - ✅ Learned git checkout -b vs git push -u origin
@@ -68,6 +75,7 @@
 - ✅ Made disciplined decision to postpone side project (Moltbook bot) until after bootcamp
 
 **Day 6 Accomplishments:**
+
 - ✅ Completed 3 fill-in-blank exercises (99% accuracy)
 - ✅ Generated first test with Claude Code
 - ✅ Learned Locator variables (professional approach)
@@ -75,6 +83,7 @@
 - ✅ Discovered Arena.ai for AI comparison
 
 **Day 7 Accomplishments:**
+
 - ✅ Week 1 Review Quiz (82.7% average)
 - ✅ Successfully used Claude Code with Architect prompt
 - ✅ Gemini generated first POM (SearchPage.ts)
@@ -83,6 +92,7 @@
 - ✅ Made disciplined decision to start Architect phase early
 
 **Day 8 Accomplishments:**
+
 - ✅ Learned Page Object Model (POM) fundamentals with Gemini
 - ✅ Understood HTML-to-TypeScript correlation
 - ✅ Discovered Playwright locator priority (Gold/Silver/Bronze standards)
@@ -93,6 +103,7 @@
 - ✅ Defined AI team roles: You (Architect), Claude Code (Builder), Claude AI (Teacher), Gemini (Judge)
 
 **Day 9 Accomplishments:**
+
 - ✅ Created ProductPage POM using YAGNI principle (You Aren't Gonna Need It)
 - ✅ Learned to only map locators the test actually needs, not entire pages
 - ✅ Built multi-POM test (SearchPage + ProductPage working together)
@@ -104,6 +115,7 @@
 - ✅ 10.5 hour intensive learning day
 
 **Day 10-11 Accomplishments:**
+
 - ✅ Learned error message reading (5 common Playwright errors)
 - ✅ Decoded real timeout error (out of stock product)
 - ✅ Created POM prompt template with RegEx patterns
@@ -118,6 +130,7 @@
 - ⏳ Behind schedule - Fixtures moved to Day 12-13
 
 **Day 12 Accomplishments:**
+
 - ✅ Built ProductQuantityPage POM with + and - buttons for quantity control
 - ✅ Learned variable naming flexibility (quantityIncreaseButton vs plusButton - both valid)
 - ✅ Generated test with relaxed prompt - Claude Code figured out structure
@@ -131,6 +144,7 @@
 - ✅ Maintained warm coaching relationship after calling out robotic responses
 
 **Day 13 Accomplishments:**
+
 - ✅ Built complete cart test with Fixtures (day13_cart_fixture_test.spec.ts)
 - ✅ Mastered beforeEach/afterEach hooks for test independence
 - ✅ Used state-based waiting pattern (try-catch with waitFor instead of isVisible)
@@ -143,6 +157,7 @@
 - ✅ Selected automationintesting.online as Week 3 practice site
 
 **Day 14 Accomplishments (Friday March 13):**
+
 - ✅ Switched to automationintesting.online (B&B booking platform - realistic SPA)
 - ✅ Built ContactPage.ts POM with explicit prompts (production-quality)
 - ✅ Created contact form E2E test (day14_contact_form.spec.ts) - 3/3 passed
@@ -156,6 +171,7 @@
 - ✅ Explored booking flow (date picker research for Day 15)
 
 **Day 14-15 Weekend Accomplishments (March 14-15):**
+
 - 🏆 **EARNED 6 ANTHROPIC AI CERTIFICATIONS IN 2 DAYS:**
   1. ✅ Claude 101 (9/10 score)
   2. ✅ Claude Code in Action (7/8 score)
@@ -172,11 +188,12 @@
 
 ---
 
-
 ### **Week 2: Playwright Architecture**
-**Status:** ✅ Completed 
+
+**Status:** ✅ Completed
 **Grade:** A+ (Outstanding progress with AI orchestration)
 **Focus Areas:**
+
 - ✅ Page Object Model (POM) from scratch
 - ✅ Fixtures & Test Hooks
 - ✅ AI Test Generation with explicit prompts
@@ -187,10 +204,11 @@
 Completed transition from manual coding to AI-assisted architecture. Established explicit prompt template for consistent POM generation. Switched practice sites strategically to automationintesting.online for realistic booking flows. Set up complete MCP infrastructure (SQLite database + MCP server) for backend verification workflows. Orchestrated 4-person AI team (Gemini + Claude Code + Coach + Ingrid) demonstrating 2026 QA Architect model.
 
 **Daily Breakdown:**
+
 - **Day 8-10:** Built POM structure for practicesoftwaretesting.com (ProductPage, CartPage)
 - **Day 11-12:** Setup/teardown patterns, fixtures deep dive
 - **Day 13:** AI-assisted test generation, established prompt standards
-- **Day 14:** 
+- **Day 14:**
   - ✅ Switched to automationintesting.online (modern React SPA)
   - ✅ Locked in explicit POM prompt template (4 sections: Architecture, Data, Logic, Constraints)
   - ✅ Created ContactPage.ts + AdminLoginPage.ts POMs
@@ -214,6 +232,7 @@ Completed transition from manual coding to AI-assisted architecture. Established
   - ✅ Team collaboration: Gemini (architect) + Claude Code (dev) + Coach (teacher) + Ingrid (PM)
 
 **Key Files Created Week 2:**
+
 - `pages/ContactPage.ts`
 - `pages/AdminLoginPage.ts`
 - `pages/BookingPage.ts`
@@ -224,6 +243,7 @@ Completed transition from manual coding to AI-assisted architecture. Established
 - `.mcp.json` (MCP server configuration)
 
 **Skills Mastered:**
+
 - ✅ Explicit prompt engineering for AI code generation
 - ✅ POM architecture with YAGNI principle
 - ✅ Test case design (boundary testing, validation, edge cases)
@@ -235,6 +255,7 @@ Completed transition from manual coding to AI-assisted architecture. Established
 - ✅ Senior-level assumption verification
 
 **Certifications Earned:**
+
 1. Claude 101 (9/10)
 2. Claude Code in Action (7/8)
 3. AI Fluency: Framework & Foundations
@@ -246,12 +267,14 @@ Completed transition from manual coding to AI-assisted architecture. Established
 Demonstrated senior-level thinking by: (1) Challenging coach's recommendation on MCP with research-backed reasoning, (2) Identifying weak test assertions that test tools vs application, (3) Verifying expert assumptions through actual testing, (4) Orchestrating multi-AI team effectively, (5) Debugging platform-specific issues independently, (6) Thinking in test suites not individual tests (1 feature → 6+ cases).
 
 **AI Team Structure (Updated Day 15):**
+
 1. **Human Architect (Ingrid):** PM/Tech Lead - defines WHAT to build, sets quality standards, reviews architecture, approves final implementation
 2. **Claude Code (Senior Developer):** Explores sites independently, designs solutions, implements code following CLAUDE.md, self-reviews, explains design decisions
 3. **Claude AI (Coach/Teacher - Me):** Explains concepts, provides lessons, builds understanding, challenges assumptions, keeps architect accountable
 4. **Gemini (Master Judge/Jury):** Audits against CLAUDE.md standards, reviews complex architectural decisions, provides strategic guidance
 
 **Portfolio Projects Completed:**
+
 1. ✅ ContactPage.ts + contact form E2E test
 2. ✅ AdminLoginPage.ts + admin login E2E test
 3. ✅ Cart management test with fixtures
@@ -259,17 +282,21 @@ Demonstrated senior-level thinking by: (1) Challenging coach's recommendation on
 5. ✅ Multi-POM workflows
 
 **Certifications Earned:**
+
 1. ✅ Claude 101 (Anthropic, March 14, 2026)
 2. ✅ Claude Code in Action (Anthropic, March 14, 2026)
 3. ✅ AI Fluency: Framework & Foundations (Anthropic, March 14, 2026)
 4. ✅ Introduction to Model Context Protocol (Anthropic, March 14, 2026)
 5. ✅ Introduction to Agent Skills (Anthropic, March 14, 2026)
 6. ✅ Model Context Protocol: Advanced Topics (Anthropic, March 15, 2026)
+
 ---
 
 ### **Week 3: AI-Driven Workflows & Code Auditing**
+
 **Status:** 🟡 In Progress - **MAJOR BREAKTHROUGH Day 17**
 **Focus Areas:**
+
 - ✅ Playwright Codegen (recording workflow)
 - ✅ Claude Code `/plan` mode mastery
 - ✅ Autonomous page scouting (web fetch)
@@ -282,14 +309,14 @@ Demonstrated senior-level thinking by: (1) Challenging coach's recommendation on
 Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this is the core 2026 QA Architect skill. Switched practice site from automationintesting.online (poor architecture) to ParaBank (proper banking structure, matches Fiserv background).
 
 **Daily Breakdown:**
-- **Day 16:** 
+
+- **Day 16:**
   - ✅ Pivoted to Digital Wallet MCP project (financial testing)
   - ✅ Created `wallet_backend.db` with Users/Transactions tables
   - ✅ Built `init_wallet_db.js` (idempotent seeding script)
   - ✅ Generated `src/wallet.ts` business logic (deposit/withdraw/transfer)
   - ✅ Strategic test user design (Alice/Bob/Carol pattern)
   - ✅ Coaching philosophy shift: Understanding over speed
-  
 - **Day 17:** **BREAKTHROUGH DAY** 🔥
   - ✅ Learned Playwright Codegen (scout → record → generate)
   - ✅ Mastered Claude Code `/plan` mode (research before coding)
@@ -303,7 +330,6 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
   - ✅ **Created QA_AUDIT_LESSONS.md:** New audit training documentation system
   - ✅ Built Locator Priority Cheat Sheet (Gold/Silver/Bronze tiers)
   - ✅ Established AI-Driven QA workflow: Generate → Audit → Challenge → Fix → Document
-  
 - - **Day 18:** ✅ COMPLETE (Friday March 20)
   - ✅ Installed Faker.js (@faker-js/faker)
   - ✅ Created helpers/testData.ts (US locale, timestamp usernames)
@@ -347,12 +373,14 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
   - ⏳ Resume Day 21: Exercise 4.2 (POST /users/add → expect 201) then Stages 5–7
 
 **Key Files Created Week 3:**
+
 - `wallet_backend.db`, `scripts/init_wallet_db.js`, `src/wallet.ts`
 - `pages/ParabankLoginPage.ts`
 - `pages/ParabankRegisterPage.ts`
 - `QA_AUDIT_LESSONS.md` (audit training system)
 
 **Skills Mastered Week 3:**
+
 - ✅ Playwright Codegen workflow
 - ✅ Claude Code `/plan` mode
 - ✅ Autonomous AI scouting (web fetch)
@@ -363,26 +391,16 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ✅ Strategic test data design (happy/boundary/negative users)
 
 **Daily Breakdown:**
-- **Day 15:** ✅ MCP SQLite server setup complete, database connected
-- **Day 16-17:** Complete RoomSelectionPage + ReservationPage POMs, build full E2E test
-- **Day 18:** MCP database verification integration in tests
-- **Day 19:** GitHub MCP server setup, PR review workflows
-- **Day 20-21:** CI/CD pipeline + MCP monitoring, portfolio piece completion
 
-**Daily Breakdown:**
-- **Day 15:** MCP Planning & Setup + BookingPage POM
-- **Day 16:** MCP Planner hands-on practice
-- **Day 17:** MCP Generator (record user actions)
-- **Day 18:** MCP Healer (auto-fix broken tests)
-- **Day 19:** Build 10-test suite (architect mode)
-- **Day 20:** Build 20-test suite (supervised AI)
-- **Day 21:** Week 3 checkpoint & portfolio review
+- **Day XX:** ✅ MCP SQLite server setup complete, database connected
 
 ---
 
 ### **Week 4: API Testing + Jira + Test Case Design**
+
 **Status:** 🟡 In Progress
 **Focus Areas:**
+
 - Postman deep dive (real job usage, not overview)
 - Playwright API automation
 - API/Auth helper setup (reusable login helper)
@@ -391,6 +409,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - Daily: 15 min TS warm-up + 30 min prompting practice + 1 interview question
 
 **Carried Forward from Week 3:**
+
 - ⏳ Postman Stage 5.2 (environment variable for token)
 - ⏳ Postman Stages 6-7 (test scripts + collection organization)
 - ⏳ Interview practice: job description analysis session
@@ -398,6 +417,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 **Note: CI/CD moved to Week 5 (earlier than original Week 6 plan)**
 
 **Daily Breakdown:**
+
 - **Day 21:** ✅ Postman manual lab — DummyJSON, Stages 1-5.1 complete (see Week 3)
 - **Day 22:** ✅ Planning day — revised curriculum, ISTQB strategy, test case writing practice
 - **Day 23:** ✅ Postman deep dive — real-world workflow, 10 testing layers, contract testing, pre/post scripts, pm.test intro
@@ -409,7 +429,26 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - **Day 30:** Playwright API Automation — translate Postman tests into TypeScript framework
 - **Day 31:** Week 4 Checkpoint & Framework Cleanup — unify code, ready for GitHub
 
+**Day 32 Accomplishments (April 22, 2026):**
+
+- ✅ POM architecture refresher — reconnected mental model after API testing detour
+- ✅ Caught CC's wrong locators on SecureBankLoginPage.ts (email vs username, Sign In vs Login)
+- ✅ Discovered CLAUDE.md locator section was incomplete — Gold/Silver/Bronze tiers were missing
+- ✅ Updated CLAUDE.md Section 2 with full Gold/Silver/Bronze locator priority system
+- ✅ Learned getByTestId is Gold tier (beats getByLabel and getByPlaceholder)
+- ✅ Verified all 3 login locators in DevTools independently (username-input, password-input, login-button)
+- ✅ Understood why getByLabel beats getByPlaceholder (structural vs cosmetic)
+- ✅ SecureBankLoginPage.ts approved — 3 Gold locators, correct parameter names
+- ✅ Investigated Dashboard HTML — found precise data-testid values for all 3 stat cards
+- ✅ Learned card wrapper vs value element distinction (accounts-count-card vs accounts-count)
+- ✅ Understood textContent() returns string | null — ?? '' pattern explained
+- ✅ SecureBankDashboardPage.ts built — 3 Gold locators, getter methods returning Promise<string>
+- ⏳ Promise<string> vs Promise<void> — lesson deferred to Day 33 (end of day fatigue)
+- ⏳ SecureBankTransactionPage.ts — next session
+- ⏳ E2E test wiring — next session
+
 **Day 29 Accomplishments (April 10, 2026):**
+
 - ✅ Superpowers plugin installed (v5.0.7) — 14 skills + 3 commands (/brainstorm, /write-plan, /execute-plan) active next session
 - ✅ Jira navigation learned — "Spaces" = Projects in new Jira Cloud UI
 - ✅ Banking API Suite project created (Scrum template, key: BAS)
@@ -425,6 +464,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ⏳ JQL basics — next session
 
 **Day 28 Accomplishments (April 10, 2026):**
+
 - ✅ Layer 3 (Boundary): empty username, empty password, missing field, 200-char username
 - ✅ Server distinguishes between empty string and missing field (same 400, design insight)
 - ✅ Long input reveals no max-length validation — design gap filed as Low-Medium defect
@@ -439,6 +479,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ✅ MetaMask/Web3 automation added as portfolio priority project
 
 **Day 26-27 Accomplishments (April 7-8, 2026):**
+
 - ✅ Layer 1 (Happy Path): POST /auth/login → 200 + accessToken verified
 - ✅ pm.response.json() — parsing response body into readable JS object
 - ✅ Stacked pm.test blocks ("Pancake Rule") — no nesting, clean structure
@@ -451,6 +492,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ✅ Teaching approach adjusted: Gemini for concept explanations, Instance A for application
 
 **Day 25 Accomplishments (April 7, 2026):**
+
 - ✅ Gemini Core 6 lesson — Chai and pm object fully explained
 - ✅ pm = PostMan master remote control (mental model locked)
 - ✅ Chai = translator that makes JavaScript readable (mental model locked)
@@ -462,6 +504,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ✅ Reference file created: DAY25_POSTMAN_CORE6.md
 
 **Day 24 Accomplishments (April 2, 2026):**
+
 - ✅ Pivoted API practice context from DummyJSON to CoinGecko (crypto background, more motivating)
 - ✅ Called live Bitcoin price directly in browser — raw JSON visible
 - ✅ DevTools Network tab: Fetch/XHR filter, isolating one user action (XRP search)
@@ -471,6 +514,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ✅ Snippets tab identified as the correct starting point (teaching gap corrected)
 
 **Day 23 Accomplishments (March 28-30, 2026):**
+
 - ✅ Real-world Postman workflow — verify the contract, then break it
 - ✅ 10 testing layers learned (4 foundation + 6 advanced)
 - ✅ Tool mapping: Postman vs Playwright vs k6 vs DB queries
@@ -486,6 +530,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ✅ user_story.md created — full personal story saved to permanent memory
 
 **Day 22 Accomplishments (March 27-28, 2026):**
+
 - ✅ Instance A (Coach) set up with full memory system
 - ✅ Revised bootcamp deadline to May 15, 2026
 - ✅ Revised curriculum agreed: CI/CD to Week 5, Copilot added, visual regression slimmed, Jira added to Week 4
@@ -501,79 +546,90 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 
 ---
 
-### **Week 5: CI/CD Pipeline + GitHub Actions**
+### **Week 5: Portfolio Build (Apr 21-27)**
+
+**Status:** 🟡 In Progress
+**Focus Areas:**
+
+- E2E Banking Flow (portfolio centerpiece)
+- CI/CD pipeline with GitHub Actions
+- Framework cleanup + professional README
+
+**Daily Breakdown:**
+
+- **Day 32 (Apr 21):** E2E Banking Flow Part 1 — Login → Get Accounts → Check Balance
+- **Day 33 (Apr 22):** E2E Banking Flow Part 2 — Transfer Money → Verify Balance Updated
+- **Day 34 (Apr 23):** CI/CD Pipeline — GitHub Actions, run Playwright tests on push, HTML report artifact
+- **Day 35 (Apr 24):** Framework cleanup + professional README
+
+**CUT (out of scope):**
+
+- ~~Newman CLI~~ — mention it, don't build it
+- ~~Visual regression (Percy/Applitools)~~ — not needed for hybrid QA roles
+- ~~BrowserStack/Sauce Labs~~ — strategy-level knowledge sufficient
+- ~~Appium/Mobile~~ — strategy-level knowledge sufficient
+
+---
+
+### **Week 6: Interview Machine (Apr 28 - May 4)**
+
 **Status:** ⏳ Not Started
 **Focus Areas:**
-- GitHub Actions — run Playwright API tests on every push (core skill)
-- Full pipeline: push → test → HTML report → artifacts
-- Newman CLI — connect Postman collection to CI/CD
-- GitHub Copilot in QA workflow — generate, review, improve tests
-- Visual regression: 1-2 days max (Playwright built-in screenshots)
-- Security testing session: SQL injection, audit logging, PII masking, role hierarchy
+
+- Resume rewrite (hybrid QA Engineer framing)
+- Mock interviews (2/day)
+- ISTQB prep
 
 **Daily Breakdown:**
-- **Day 30-31:** GitHub Actions — basic pipeline, run Playwright tests on push
-- **Day 32:** Newman CLI — run Postman collection from command line
-- **Day 33:** GitHub Copilot in QA workflow (live practice)
-- **Day 34:** Visual regression with Playwright screenshots (1 day only)
-- **Day 35:** Security testing session + Week 5 checkpoint
+
+- **Day 36-37:** Resume rewrite — quantify bootcamp wins, hybrid QA Engineer focus, IBM/Fiserv framing
+- **Day 38-40:** Mock interviews — 2/day, STAR method, technical QA questions
+- **Day 41-42:** ISTQB Foundation — practice exam, identify gaps, targeted study (Chapters 2/4/5)
 
 ---
 
-### **Week 6: CI/CD & Test Strategy**
-**Status:** ⏳ Not Started  
+### **Week 7: Launch (May 5-11)**
+
+**Status:** ⏳ Not Started
 **Focus Areas:**
-- GitHub Actions
-- Jira/Xray integration
-- Test strategy documentation
+
+- ISTQB exam
+- Job applications begin
 
 **Daily Breakdown:**
-- **Day 36-38:** Build CI/CD pipeline
-- **Day 39-40:** Test reporting & tracking
-- **Day 41-42:** Write test strategy document (architect skill)
+
+- **Day 43-44:** ISTQB final prep + take exam
+- **Day 45+:** Applications (5/day) — hybrid QA Engineer roles, FinTech/blockchain startups
+- **Ongoing:** Fix gaps found in mock interviews, LinkedIn polish
+
+**MetaMask/Web3:** Optional — only if a Web3 company requests an interview. Build it in 3 targeted days then.
 
 ---
 
-### **Week 7: Mobile & Accessibility**
-**Status:** ⏳ Not Started  
-**Focus Areas:**
-- Appium basics (strategy-focused)
-- Real device testing
-- a11y audits
+### **Job Search Target (Updated April 21, 2026)**
 
-**Daily Breakdown:**
-- **Day 43-45:** Appium architecture
-- **Day 46-47:** BrowserStack/Sauce Labs
-- **Day 48-49:** Accessibility testing
+**Role:** Senior QA Engineer — Hybrid (Manual + Automation)
+**NOT:** Pure QA Architect (too few openings, requires recent leadership)
+**Why hybrid is right:**
 
----
+- 10x more postings
+- 15 years IBM/Fiserv manual QA = major differentiator vs automation-only candidates
+- The story: enterprise-grade manual foundation + modern Playwright/API/CI/CD stack
 
-### **Week 8: Interview Preparation**
-**Status:** ⏳ Not Started  
-**Focus Areas:**
-- Mock technical interviews
-- Behavioral prep
-- Portfolio finalization
+**Job boards:** Wellfound, BuiltIn, HiringCafe
+**Apply date:** May 15, 2026
+**Financial runway:** June 27, 2026
 
-**Daily Breakdown:**
-- **Day 50-52:** Live coding practice
-- **Day 53-54:** STAR method for QA
-- **Day 55-56:** Final portfolio review
+**E-Trade recruiter (warm contact):** Follow up May 15 with:
 
----
-
-### **Weeks 9-10: Job Hunt Sprint** (If needed)
-**Status:** ⏳ Not Started  
-**Focus Areas:**
-- Daily applications (5/day)
-- Mock interviews (2/week)
-- Goal: 10 interviews scheduled
+> "Completed bootcamp, ISTQB certified, CI/CD pipeline live on GitHub."
 
 ---
 
 ## 🎓 Skills Checklist
 
 ### **Core Automation** (Week 1-3)
+
 - [ ] Async/await mastery
 - [ ] TypeScript type safety
 - [ ] Arrays & loops
@@ -582,6 +638,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - [ ] AI-assisted test generation
 
 ### **API & Data** (Week 4-5)
+
 - [ ] Postman/Newman
 - [ ] API contract testing
 - [ ] Mock servers
@@ -589,12 +646,14 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - [ ] AI model testing
 
 ### **DevOps & Strategy** (Week 6-7)
+
 - [ ] GitHub Actions CI/CD
 - [ ] Test reporting
 - [ ] Mobile testing strategy
 - [ ] Accessibility audits
 
 ### **Interview Ready** (Week 8)
+
 - [ ] Technical interview skills
 - [ ] System design for QA
 - [ ] Behavioral storytelling
@@ -605,11 +664,13 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 ## 📝 Notes & Adjustments
 
 **Week 1 Adjustments:**
+
 - Switching from saucedemo to ecommerce-playground.lambdatest.io (student preference)
 - Focus on understanding "why" before "how"
 - Created living document system for better note-taking
 
 **Daily Audit Practice (Starting Week 2):**
+
 - **Duration:** 1 hour daily
 - **Structure:** Review AI-generated code → Find bugs → Fix and explain
 - **Complexity:** Real production-style code, not basic examples
@@ -617,6 +678,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - **Goal:** By Week 8, spot 8-10 bugs in complex AI-generated tests within 30 minutes
 
 **Student Strengths:**
+
 - 15 years QA experience (IBM/Fiserv)
 - Strong conceptual understanding
 - High motivation and work ethic
@@ -627,6 +689,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - Self-aware about learning style and pace needs
 
 **AI Team Structure (Defined Day 8):**
+
 1. **Human Architect (Ingrid):** Director, final decision maker, orchestrates AI agents
 2. **Claude Code (CLI):** Builder, generates TypeScript/Playwright code, creates files
 3. **Claude AI (Web):** Teacher, explains concepts, provides lessons, builds understanding
@@ -637,12 +700,14 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 This ensures Claude Code matches the company's existing patterns instead of creating inconsistent code.
 
 **Job Task Breakdown (Real World):**
+
 - Verification & Auditing: 35%
 - System Architecture: 30%
 - Prompt Engineering: 25%
 - Writing Syntax from Memory: 10%
 
 **Learning Style & Preferences (CRITICAL - Updated Day 6):**
+
 - **Daily commitment:** 8-10 hours/day (often 2pm-11pm, peak productivity at night)
 - **Preferred learning method:** See complete working examples → Fill in blanks → Modify code → Repeat until muscle memory
 - **NOT effective:** Writing from memory without examples, rushing through concepts, short 30-40 min sessions
@@ -651,12 +716,14 @@ This ensures Claude Code matches the company's existing patterns instead of crea
 - **Resume skill goals:** Playwright, TypeScript (6mo equivalent), Git, CI/CD, API Testing, Jira, LLM/Agentic workflows
 
 **Revised Daily Structure (8-10 hours):**
+
 - **Morning (2-3 hrs):** New concept + hands-on practice with that concept
-End every single coding session with 1 Mock Interview Question to practice the Corporate QA Dialect.
+  End every single coding session with 1 Mock Interview Question to practice the Corporate QA Dialect.
 - **Afternoon (3-4 hrs):** Real-world application (build tests) + research QA field/trends
 - **Evening (3-4 hrs):** Deep practice (fill-blanks, modify, debug) + documentation + portfolio work
 
 **Teaching Approach That Works:**
+
 1. Show complete working test (student reads and understands each line)
 2. Give same test with strategic blanks - student fills them in
 3. Student modifies the test (change data, add functionality)
@@ -665,6 +732,7 @@ End every single coding session with 1 Mock Interview Question to practice the C
 6. Focus on READING code fluency first, WRITING fluency develops over weeks 4-6
 
 **Coach Commitments:**
+
 - Match student's 8-10 hour daily commitment (no premature break suggestions)
 - Weekly research of QA field (job postings, blogs, trends) and share insights
 - Provide corporate-reality focused training (what they'll actually do at work)
@@ -673,6 +741,7 @@ End every single coding session with 1 Mock Interview Question to practice the C
 - Update daily Master_Plan.md, lessons.md, Interview_tips.md
 
 **Growth Areas:**
+
 - Git fundamentals (minimal experience)
 - Loop syntax variations
 - TypeScript advanced features
@@ -683,6 +752,7 @@ End every single coding session with 1 Mock Interview Question to practice the C
 ## 🎯 Success Metrics
 
 **Week-by-Week Goals:**
+
 - - - **Week 1:** Can READ and UNDERSTAND Playwright tests, modify existing tests, fill in code blanks correctly, identify basic syntax errors in AI-generated code
 - **Week 2:** Can build a POM structure independently
 - **Week 3:** Can prompt AI to generate 80% of test code
@@ -695,5 +765,6 @@ End every single coding session with 1 Mock Interview Question to practice the C
 **Final Goal:** Land Senior AI-Driven QA Engineer role by April 30th 2026
 
 ---
+
 **Last Updated:** Week 4, Day 28 (April 9, 2026)
 **Next Review:** End of Week 4

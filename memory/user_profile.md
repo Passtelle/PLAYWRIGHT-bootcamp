@@ -13,8 +13,8 @@ This context matters. Treat every session with the weight of that commitment.
 
 ## The Goal
 
-Land a QA Architect role by May 2026. Applying 5 jobs/day starting Week 9 (mid-May).
-Target companies like WireWheel. Leveraging 15 years of experience + modern AI-driven QA skills as a unique combination most candidates don't have.
+Land a **QA Engineer (hybrid Manual + Automation)** role by May 2026. Applying 5 jobs/day starting mid-May.
+Target: FinTech/blockchain startups, remote-first. Strategic pivot from "QA Architect" — hybrid roles are more abundant and her 15-year manual QA background (IBM/Fiserv) is a major differentiator in this category. The story: enterprise-grade manual foundation + modern automation stack = rare combination.
 
 ## The Bootcamp
 

@@ -1,20 +1,54 @@
 # QA Automation Standards for this Project
 
 ## 1. Coding Style & Types
+
 - **Strict Typing:** ALWAYS use explicit TypeScript types (e.g., ': string', ': Locator', ': Page', ': RegExp').
 - **No 'any':** Never use the 'any' type.
 - **Async/Await:** All test steps must be async/await.
 
 ## 2. Locators & Selectors
-- **Priority:** Always use 'page.getByRole()' or 'page.getByPlaceholder()' first.
+
+### Locator Priority (Gold / Silver / Bronze)
+
+**🥇 Gold — Always prefer these first:**
+
+- `page.getByTestId('data-testid-value')` — built explicitly for automation, never changes for UX reasons
+- `page.getByTestId('data-cy-value')` — same idea, Cypress convention also used in some apps
+
+**🥈 Silver — Strong, semantic, use when Gold isn't available:**
+
+- `page.getByRole('button', { name: /login/i })` — accessibility-linked, very stable
+- `page.getByLabel('Username')` — tied to the input via `for=` attribute, structural
+
+**🥉 Bronze — Use only when Gold/Silver aren't available:**
+
+- `page.getByPlaceholder('Enter your username')` — disappears when typing, changes with copy edits
+- `page.getByText('Submit')` — fragile, copy changes break it
+
+**❌ Avoid unless absolutely necessary:**
+
+- CSS classes (`.btn-primary`, `.input-field`) — change with UI redesigns
+- XPath — brittle, unreadable, last resort only
+- Generic IDs not meant for testing (`id="div-3"`)
+
+### How to Identify Gold Locators
+
+Open DevTools → inspect the element → look for:
+
+- `data-testid="..."`
+- `data-cy="..."`
+- `data-qa="..."`
+
 - **Avoid:** Do not use XPath or generic CSS selectors unless absolutely necessary.
 - **Lists:** If a locator returns multiple items (like a list of products), use '.first()' or '.nth()' explicitly to handle Strict Mode.
 
 ## 3. Robustness & Assertions
+
 - **Case Insensitivity:** For text assertions, ALWAYS use RegExp with the 'i' flag (e.g., /Success/i) instead of exact strings.
 - **Variables:** Define all test data (URL, product names, locators) at the top of the test under a 'PLAN' section.
 
 ## 4. Test Structure
+
 - Organize every test into 3 clearly commented sections:
   1. // 🏗️ THE PLAN (Data & Variables)
   2. // 🎬 THE WORK (Actions)
@@ -36,6 +70,7 @@ Flakiness Check: The Judge must verify that no tests rely on hardcoded timeouts 
 When prompting Claude Code to generate tests or POMs, use this structured format:
 
 ### Template Structure:
+
 ```
 Claude, create a [type of test] at `[file path]`.
 
@@ -56,14 +91,16 @@ Strictly follow CLAUDE.md standards.
 ```
 
 ### Mapping to Test File Structure:
+
 - **Architecture & Data** → 🏗️ THE PLAN section
 - **Logic (Actions)** → 🎬 THE WORK section
 - **Logic (Assertions)** → ✅ THE CHECK section
-The Architecture (What files/tools are we using?)
-The Data (What variables, URLs, or arrays are we passing in?)
-The Logic (What are the physical steps and the final assertions?)
+  The Architecture (What files/tools are we using?)
+  The Data (What variables, URLs, or arrays are we passing in?)
+  The Logic (What are the physical steps and the final assertions?)
 
 ### Example Architect Prompt:
+
 ```
 Claude, create a data-driven test at `tests/bootcamp/day9_login_invalid_users.spec.ts`.
 
@@ -86,6 +123,7 @@ Strictly follow CLAUDE.md standards.
 ```
 
 ### Why This Structure Works:
+
 1. **Clear separation of concerns** - Architecture, Data, Logic
 2. **Maps directly to test file structure** - Makes review easier
 3. **Forces architectural thinking** - Plan before execution
@@ -95,26 +133,31 @@ Strictly follow CLAUDE.md standards.
 ## 7. Page Object Model (POM) Rules
 
 ### Separation of Concerns
+
 - **POMs perform actions and return data** - No `expect()` statements allowed
 - **Tests make decisions and verify results** - All assertions belong in test files
 
 ### POM Methods Must Be Strict
+
 - Methods do exactly what they're told, nothing more
 - No conditional logic like "click if exists"
 - If an element doesn't exist, the test should FAIL LOUDLY
 - Let tests handle decision-making, not POMs
 
 ### Method Parameters Must Be Fully Explicit
+
 - **Never use optional defaults** to hide related fields (e.g., `confirmPassword: string = password`)
 - **Always require every parameter** so the test's intent is fully visible at the call site
 - A QA test must declare all inputs explicitly — convenience shortcuts hide information and block negative testing
 
 **❌ BAD - Optional default hides the confirm value:**
+
 ```typescript
 async register(password: string, confirmPassword: string = password): Promise<void>
 ```
 
 **✅ GOOD - Both values required, intent is always visible:**
+
 ```typescript
 async register(password: string, confirmPassword: string): Promise<void>
 // Happy path:  register('SecurePass1!', 'SecurePass1!')
@@ -124,6 +167,7 @@ async register(password: string, confirmPassword: string): Promise<void>
 ### Good vs Bad Examples
 
 **❌ BAD - Assertion in POM:**
+
 ```typescript
 async clickBuyNow(): Promise<void> {
   await this.buyNowButton.click();
@@ -132,6 +176,7 @@ async clickBuyNow(): Promise<void> {
 ```
 
 **✅ GOOD - POM returns locator, test asserts:**
+
 ```typescript
 // In POM:
 async clickBuyNow(): Promise<void> {
@@ -144,13 +189,15 @@ await expect(productPage.successNotification).toBeVisible(); // Correct!
 ```
 
 ### Use RegEx for Resilient Locators
+
 When creating POM locators, prefer RegEx patterns for case-insensitive, flexible matching:
+
 ```typescript
 // ✅ Good - case insensitive:
-this.buyNowButton = page.getByRole('button', { name: /buy now/i });
+this.buyNowButton = page.getByRole("button", { name: /buy now/i });
 
 // ❌ Less resilient - exact match:
-this.buyNowButton = page.getByRole('button', { name: 'BUY NOW' });
+this.buyNowButton = page.getByRole("button", { name: "BUY NOW" });
 ```
 
 ## 8. Strict Prompt Templates (Established Day 10)
@@ -158,7 +205,9 @@ this.buyNowButton = page.getByRole('button', { name: 'BUY NOW' });
 These templates were created with Gemini and must be followed exactly for all future POMs and test files.
 
 ### Template for POM Files:
+
 Strict POM: All interactions in 🎬 THE WORK must exclusively use locators defined in 🏗️ THE PLAN. No ad-hoc string selectors are allowed inside methods
+
 ```
 Section 8 will be UPDATED with:
 POM Prompt Template (EXPLICIT - Production Standard)
@@ -240,15 +289,19 @@ Use high-level requirements, not micro-instructions:
 
 **✅ Good (Architect → Senior Dev):**
 ```
+
 Claude, create a ContactPage POM with name, email, phone, subject, message fields and submit button.
 Use getByPlaceholder for inputs, getByRole for button.
 Follow CLAUDE.md standards.
+
 ```
 
 **❌ Bad (Micromanaging):**
 ```
+
 Claude, on line 5 type "readonly nameInput: Locator;" then on line 6 type...
-```
+
+````
 
 **Trust Claude Code to:**
 - Choose appropriate variable names
@@ -294,17 +347,20 @@ Claude Code CLI (VS Code) and Claude Desktop share the same `~/.claude` config d
 In VS Code terminal (PowerShell), give Claude Code its own isolated config:
 ```powershell
 $env:CLAUDE_CONFIG_DIR="$HOME\.claude-scripter"; claude
-```
+````
+
 This separates the auth tokens — Desktop keeps its own, VS Code gets its own.
 You'll be asked to log in again for the VS Code instance — that's expected.
 
 **To make it permanent** (so you don't set it every session), add to PowerShell profile:
+
 ```powershell
 notepad $PROFILE
 # Add this line: $env:CLAUDE_CONFIG_DIR="$HOME\.claude-scripter"
 ```
 
 **To UNDO everything if it doesn't work:**
+
 ```powershell
 # Remove the separate config directory
 Remove-Item "$HOME\.claude-scripter" -Recurse -Force -ErrorAction SilentlyContinue
@@ -312,6 +368,7 @@ Remove-Item "$HOME\.claude-scripter" -Recurse -Force -ErrorAction SilentlyContin
 # Clear the environment variable for this session
 Remove-Item Env:\CLAUDE_CONFIG_DIR -ErrorAction SilentlyContinue
 ```
+
 If you made it permanent in the profile, open `notepad $PROFILE` and delete the `CLAUDE_CONFIG_DIR` line.
 Nothing is permanent — no risk to PC, repo, or existing Claude setup.
 
@@ -320,18 +377,22 @@ Nothing is permanent — no risk to PC, repo, or existing Claude setup.
 ### Multi-Agent Workflow (Planned — not yet active)
 
 **The Two-Instance Model:**
+
 1. **Claude Code Desktop (Teacher/Auditor)** — builds lessons, tests student, updates docs, audits scripts
 2. **Claude Code VS Code (Senior Dev/Builder)** — generates scripts, runs tests, sees results
 
 Both instances share the same repo files — that's the communication channel.
 
 **Experimental Agent Teams (Windows PowerShell):**
+
 ```powershell
 $env:CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS="1"
 ```
+
 Enables direct agent-to-agent communication between Claude Code instances.
 
 **When activating the Teacher instance**, provide this context:
+
 - Read `CLAUDE.md` for all standards
 - Read `MEMORY.md` and all memory files for full project context
 - Read `MASTER_PLAN.md` for where we are in the bootcamp

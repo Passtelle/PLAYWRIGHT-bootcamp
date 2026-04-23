@@ -5,6 +5,7 @@ type: reference
 ---
 
 ## When to Use
+
 Paste this at the start of every new Instance A session — new chat, after compression, after reboot.
 
 ## The Prompt
@@ -72,4 +73,5 @@ Welcome to the Team! ;)
 ```
 
 ## Also Read
+
 After reading the files above, also read `memory/user_story.md` — the real human story behind the student. It matters.

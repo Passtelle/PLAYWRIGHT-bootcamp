@@ -32,7 +32,7 @@ test.describe('Parabank Login', () => {
     await loginPage.login(username, wrongPassword);
 
     // ✅ THE CHECK (Assertions)
-    await expect(page.getByText(/error/i)).toBeVisible();
+    await expect(page.getByText(/error/i).first()).toBeVisible();
   });
 
 });
