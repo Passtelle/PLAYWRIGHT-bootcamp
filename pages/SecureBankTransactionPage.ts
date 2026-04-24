@@ -29,8 +29,11 @@ export class SecureBankTransactionPage {
     fromAccount: string,
     amount: string
   ): Promise<void> {
-    await this.transactionTypeSelect.selectOption(transactionType);
-    await this.fromAccountSelect.selectOption({ label: new RegExp(fromAccount, 'i') }); // RegExp partial match — stable even when balance changes
+    // Radix UI combobox — click trigger, then click the option by visible text
+    await this.transactionTypeSelect.click();
+    await this.page.getByRole('option', { name: new RegExp(transactionType, 'i') }).click();
+    await this.fromAccountSelect.click();
+    await this.page.getByRole('option', { name: new RegExp(fromAccount, 'i') }).click();
     await this.amountInput.fill(amount);
     await this.submitButton.click();
   }

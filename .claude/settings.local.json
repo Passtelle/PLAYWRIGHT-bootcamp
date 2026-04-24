@@ -28,7 +28,10 @@
       "WebFetch(domain:docs.etherscan.io)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(gh repo:*)"
+      "Bash(gh repo:*)",
+      "Bash(grep -n \"BAS-\" tests/api/*.spec.ts)",
+      "WebFetch(domain:qaplayground.dev)",
+      "WebFetch(domain:qaplayground.com)"
     ]
   },
   "enableAllProjectMcpServers": true,

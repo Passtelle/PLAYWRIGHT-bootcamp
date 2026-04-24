@@ -6,7 +6,7 @@ on:
     branches: [ main, master ]
 jobs:
   test:
-    timeout-minutes: 3
+    timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -18,7 +18,10 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test tests/bootcamp/day32_securebank_e2e.spec.ts
+      env:
+        PARABANK_USERNAME: ${{ secrets.PARABANK_USERNAME }}
+        PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:

@@ -16,6 +16,14 @@ export class SecureBankDashboardPage {
   }
 
   // 🎬 THE WORK (Actions)
+  async goto(): Promise<void> {
+    await this.page.goto("https://www.qaplayground.com/bank/dashboard");
+  }
+
+  async navigateToDashboard(): Promise<void> {
+    await this.page.getByTestId("nav-dashboard").click();
+  }
+
   async getTotalBalance(): Promise<string> {
     return (await this.totalBalance.textContent()) ?? '';
   }

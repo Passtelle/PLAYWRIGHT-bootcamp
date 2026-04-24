@@ -3769,6 +3769,42 @@ export class SearchPage {
 - [x] Gemini generated first POM (SearchPage.ts)
 - [x] Ready for Week 2: POM phase
 
+### **Day 33: selectOption() & Dropdown Strategies**
+
+**Date:** April 24, 2026
+**Status:** ✅ Completed
+
+#### **🎯 Key Lessons**
+
+**1. selectOption() — three ways**
+
+| Method                                       | When to use                                 |
+| -------------------------------------------- | ------------------------------------------- |
+| `selectOption('deposit')`                    | Value is stable and predictable             |
+| `selectOption({ label: 'Primary Savings' })` | Value is dynamic, label is stable           |
+| `selectOption({ label: /Primary Savings/ })` | Label includes changing data (like balance) |
+
+**2. The two fragility traps — both caught in one session**
+
+Trap 1 — Dynamic IDs:
+`id_1774728332594_jboac8a3k` — timestamp + random string.
+Hardcoding this breaks the test when data resets.
+Fix: use `{ label: }` instead.
+
+Trap 2 — Balance in label:
+`'Primary Savings - $5,000.00'` — balance changes after every transaction.
+Fix: use RegExp `{ label: /Primary Savings/ }` — matches partial text.
+
+**3. Promise<void> vs Promise<string> — locked**
+
+| Return type       | When                                                        |
+| ----------------- | ----------------------------------------------------------- |
+| `Promise<void>`   | Method does something, returns nothing (goto, login, click) |
+| `Promise<string>` | Method reads something, returns text (getTotalBalance)      |
+
+**4. depositAmount as string**
+`fill()` only accepts strings. Even numbers go in as `'500'`, not `500`.
+
 ---
 
 ### **Day 17: AI-Driven Workflow Breakthrough - Codegen, Plan Mode, and Audit Thinking**
