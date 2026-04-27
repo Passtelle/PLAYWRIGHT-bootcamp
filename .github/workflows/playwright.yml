@@ -24,7 +24,7 @@ jobs:
         PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
     - name: Debug - Find XML report
       if: always()
-      run: find . -name "*.xml" -not -path "*/node_modules/*" 2>/dev/null || echo "No XML files found"
+      run: find . -name "*.xml" -not -path "*/node_modules/*" 2>/dev/null && echo "XML found" || echo "No XML files found"
     - name: Upload results to Xray
       if: always()
       run: |
@@ -34,7 +34,7 @@ jobs:
           https://xray.cloud.getxray.app/api/v2/authenticate | tr -d '"')
         curl -s -H "Content-Type: text/xml" \
           -H "Authorization: Bearer ${token}" \
-          --data @test-results/results.xml \
+          --data @results.xml \
           "https://xray.cloud.getxray.app/api/v2/import/execution/junit?projectKey=BAS"
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
