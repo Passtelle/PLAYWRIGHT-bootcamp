@@ -22,6 +22,17 @@ jobs:
       env:
         PARABANK_USERNAME: ${{ secrets.PARABANK_USERNAME }}
         PARABANK_PASSWORD: ${{ secrets.PARABANK_PASSWORD }}
+    - name: Upload results to Xray
+      if: always()
+      run: |
+        token=$(curl -s -H "Content-Type: application/json" \
+          -X POST \
+          --data "{\"client_id\":\"${{ secrets.XRAY_CLIENT_ID }}\",\"client_secret\":\"${{ secrets.XRAY_CLIENT_SECRET }}\"}" \
+          https://xray.cloud.getxray.app/api/v2/authenticate | tr -d '"')
+        curl -s -H "Content-Type: text/xml" \
+          -H "Authorization: Bearer ${token}" \
+          --data @test-results/results.xml \
+          "https://xray.cloud.getxray.app/api/v2/import/execution/junit?projectKey=BAS"
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
