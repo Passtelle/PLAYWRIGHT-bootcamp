@@ -1082,6 +1082,32 @@ _Interview questions will be added in Week 6_
 
 ---
 
+## CI/CD & Pipeline Questions
+
+### **Q: How does your CI/CD pipeline work?**
+
+**✅ Good Answer (in your voice):**
+
+> "Every push to GitHub triggers GitHub Actions, which reads my workflow file and runs the Playwright tests on a fresh Ubuntu server. I have the credentials stored as GitHub Secrets so they're never exposed in the code. After the tests run, Playwright generates a JUnit XML report which gets uploaded to Xray automatically — so test results appear in Jira without any manual work."
+
+---
+
+### **Q: Tell me about a CI/CD problem you solved.**
+
+**✅ Your story:**
+
+> "During my bootcamp I set up a GitHub Actions pipeline and it kept failing even though tests passed locally. Turned out dotenv was installed on my machine but never added to package.json. GitHub runs npm ci which installs strictly from package.json — so the package didn't exist on the server. Classic 'works on my machine' problem. I fixed it with npm install dotenv --save and the pipeline went green."
+
+---
+
+### **Q: What's the difference between a native dropdown and a custom combobox in Playwright?**
+
+**✅ Good Answer:**
+
+> "Native HTML select elements use selectOption() — one line. Custom comboboxes like Radix UI need two steps: click the trigger to open it, then getByRole('option') to select the item. I always inspect the HTML first. If I see a button with role='combobox', I know it's custom and selectOption() won't work."
+
+---
+
 ## Red Flags to Avoid
 
 ### **❌ DON'T Say:**

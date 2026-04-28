@@ -457,11 +457,49 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ⏳ E2E test not yet run — pending TS basics refresh session
 - ⏳ TypeScript basics review needed before continuing
 
-**Day 33 Focus (April 24, 2026):**
+**Day 33 Accomplishments (April 23, 2026):**
 
-- ⏳ TypeScript basics spiral review (const, let, string, number, arrays, loops)
-- ⏳ Run E2E test, audit output, fix failures
-- ⏳ CI/CD pipeline start
+- ✅ Promise<void> vs Promise<string> fully understood — actions return void, getters return string
+- ✅ ?? '' (nullish coalescing) locked — textContent() returns string | null, ?? prevents TypeScript error
+- ✅ SecureBankTransactionPage.ts built and approved — 5 Gold locators
+- ✅ selectOption() three methods locked: by value, by label { label: }, by RegExp { label: /pattern/ }
+- ✅ Radix UI combobox vs native <select> distinction — combobox needs click() + getByRole('option')
+- ✅ Dynamic ID trap caught — timestamp-generated account IDs break when data resets
+- ✅ Balance-in-label trap caught — 'Primary Savings - $5,000.00' breaks after any deposit
+- ✅ Fix: selectOption({ label: /Primary Savings/ }) — RegExp partial match, stable forever
+- ✅ navigateToDashboard() added to SecureBankDashboardPage — architectural gap caught during E2E build
+- ✅ Hard reload vs client-side navigation — page.goto() resets React state, nav link preserves it
+- ✅ E2E test passing locally — 1 passed ✅
+- ✅ depositAmount as string — fill() only accepts strings, even numbers go in as '500'
+
+**Day 34 Accomplishments (April 24, 2026):**
+
+- ✅ CI/CD full concept lesson — what GitHub Actions does, workflow file anatomy line by line
+- ✅ GitHub Secrets configured — PARABANK_USERNAME, PARABANK_PASSWORD added to vault
+- ✅ Workflow file fixed — timeout 3→60, scoped to SecureBank E2E, secrets wired in
+- ✅ dotenv missing from package.json — classic 'works on my machine' CI problem caught and fixed
+- ✅ Pipeline green ✅ — first clean run on GitHub Actions
+- ✅ JUnit XML reporter added to playwright.config.ts — Playwright now generates test-results/results.xml
+- ✅ Xray API Keys generated — Client ID + Client Secret saved securely
+- ✅ XRAY_CLIENT_ID + XRAY_CLIENT_SECRET added to GitHub Secrets
+- ✅ Xray workflow step added — authenticate + POST JUnit XML to Xray Cloud API
+
+**Day 35 Accomplishments (April 27, 2026):**
+
+- ✅ Weekend off — intentional rest, brain recovery
+- ✅ Xray upload debugged — exit code 26 = curl can't read file (XML not being generated)
+- ✅ Root cause found: JUnit reporter couldn't write to test-results/ (directory not created when tests pass)
+- ✅ Fix: moved outputFile to repo root (results.xml) — always writable, find confirms it exists
+- ✅ Full pipeline green with Xray upload — BAS-16 Test Execution auto-created in Jira
+- ✅ BAS-15 vs BAS-17 architecture lesson — JUnit import creates Generic test, doesn't match Cucumber spec
+- ✅ Identified real enterprise problem: JUnit import creates duplicate tickets without Xray key annotation
+- ✅ Interview story locked: "I found that Xray's JUnit import auto-creates Generic tests — scaling to 100 tests means 100 unmapped tickets. The fix is Xray key annotation or a native Playwright/Xray reporter."
+- ✅ BAS-15 Gherkin test case audited and corrected — precondition moved to Preconditions tab, BAS-14 linked
+- ✅ README review — identified gaps, planned full rewrite for Day 36 morning
+- ✅ GitHub Copilot added to curriculum (Week 6)
+- ⏳ README rewrite — Day 36 (fresh start, full effort)
+
+**Week 5 Status: ✅ COMPLETED**
 
 **Day 29 Accomplishments (April 10, 2026):**
 
@@ -564,7 +602,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 
 ### **Week 5: Portfolio Build (Apr 21-27)**
 
-**Status:** 🟡 In Progress
+**Status:** ✅ Completed
 **Focus Areas:**
 
 - E2E Banking Flow (portfolio centerpiece)

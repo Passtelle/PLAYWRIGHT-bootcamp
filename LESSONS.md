@@ -3805,6 +3805,78 @@ Fix: use RegExp `{ label: /Primary Savings/ }` — matches partial text.
 **4. depositAmount as string**
 `fill()` only accepts strings. Even numbers go in as `'500'`, not `500`.
 
+### **Day 34: CI/CD Pipeline & GitHub Actions**
+
+**Date:** April 24, 2026
+**Status:** ✅ Completed
+
+#### **🎯 Key Lessons**
+
+**1. CI/CD in one picture**
+
+**2. Workflow file anatomy**
+
+```yaml
+on: push          # when to run
+timeout-minutes   # kill job after this long (use 60, not 3)
+runs-on           # GitHub's server (ubuntu-latest)
+npm ci            # installs strictly from package.json
+env:              # reads from GitHub Secrets vault
+```
+
+**3. GitHub Secrets**
+
+- Secrets vault = locked fridge
+- env section in workflow = recipe saying "take milk from fridge"
+- Without env section, secrets exist but tests can't read them
+
+**4. 'Works on my machine' trap**
+dotenv was installed locally but missing from package.json.
+GitHub runs npm ci — installs only what's in package.json.
+Fix: npm install dotenv --save
+
+**5. JUnit XML**
+Playwright generates test-results/results.xml after tests run.
+Xray reads this file to create Test Executions in Jira automatically.
+
+```yaml
+reporter: [["html"], ["junit", { outputFile: "test-results/results.xml" }]]
+```
+
+### **Day 33: E2E Banking Flow & Transaction POM**
+
+**Date:** April 23, 2026
+**Status:** ✅ Completed
+
+#### **🎯 Key Lessons**
+
+**1. Radix UI combobox vs native select**
+
+| Element         | HTML tag                   | Playwright method                 |
+| --------------- | -------------------------- | --------------------------------- |
+| Native dropdown | `<select>`                 | `selectOption('value')`           |
+| Custom combobox | `<button role="combobox">` | `click()` + `getByRole('option')` |
+
+Always inspect HTML before assuming dropdown type.
+
+**2. Three selectOption() methods**
+
+```typescript
+selectOption("deposit"); // stable value
+selectOption({ label: "Primary Savings" }); // dynamic ID, stable label
+selectOption({ label: /Primary Savings/ }); // label includes changing data
+```
+
+**3. Hard reload vs client-side navigation**
+
+- `page.goto()` = hard reload, resets React/Next.js in-memory state
+- Clicking nav link = client-side navigation, preserves React state
+- Use nav link click when verifying data updated after an action
+
+**4. POM architectural gap**
+SecureBankDashboardPage was missing goto(). Caught during E2E build.
+Rule: review all POMs before writing the test, not after.
+
 ---
 
 ### **Day 17: AI-Driven Workflow Breakthrough - Codegen, Plan Mode, and Audit Thinking**
