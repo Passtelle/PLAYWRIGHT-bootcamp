@@ -17,11 +17,11 @@
 
 ## 👋 About the Author
 
-I spent 13+ years testing complex applications at **IBM Internet Security Systems** and **Fiserv** — antivirus engines, IDS/IPS systems, firewalls, and financial web platforms. I led offshore QA teams, built test departments from scratch, and performed penetration testing on financial applications using Metasploit.
+I spent 13+ years testing complex applications at **IBM Internet Security Systems** and **Fiserv**: antivirus engines, IDS/IPS systems, firewalls, and financial web platforms. I led offshore QA teams, built test departments from scratch, and performed penetration testing on financial applications using Metasploit.
 
 After a career break, I returned with one goal: become the kind of QA engineer that modern FinTech teams actually need. I spent several months building this portfolio, 8 to 10 hours a day, using an AI-first workflow I believe represents where the industry is heading.
 
-During my break I also built **DigitPilot**, an AI-powered crypto trading education and simulation platform ([digitpilot.io](https://digitpilot.io)), designed in Figma and prototyped using Claude, Gemini, and Vercel. It reflects 3 years of active crypto trading experience and a deep interest in FinTech and blockchain QA.
+During my break I also designed and prototyped **DigitPilot**, an AI-powered crypto trading education and simulation platform ([digitpilot.io](https://digitpilot.io)), conceived in Figma and brought to life with Claude, Gemini, and Vercel. It reflects 3 years of active crypto trading experience and a deep interest in FinTech and blockchain QA.
 
 **What I bring:**
 - 🏦 Enterprise security and financial QA instinct (IBM + Fiserv)
