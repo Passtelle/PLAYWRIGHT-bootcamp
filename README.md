@@ -36,6 +36,55 @@ During my break I also designed and prototyped **DigitPilot**, an AI-powered cry
 
 ---
 
+## 🗺️ The Journey
+
+8 to 10 hours a day since **February 2026**. Every phase built on the last. Every concept tested, audited, and committed to the repo.
+
+| Phase | What Was Built | Status |
+|-------|---------------|--------|
+| **Foundation** | Playwright + TypeScript setup, async/await mental model, first loop-driven data tests | ✅ Complete |
+| **POM Architecture** | Page Object Model from scratch, fixtures, hooks, multi-site coverage | ✅ Complete |
+| **AI-Augmented Workflow** | Three-role audit system (Claude Code + Gemini + Human), prompt engineering, Faker.js data factory | ✅ Complete |
+| **Enterprise Banking Suite** | Parabank: login, registration, account management, 3-test registration suite (happy/negative/edge) | ✅ Complete |
+| **API Testing** | Postman manual lab → Playwright TypeScript automation, 4-layer coverage (happy/negative/boundary/security) | ✅ Complete |
+| **E2E + CI/CD** | SecureBank full banking flow, GitHub Actions pipeline, Xray integration, auto-created Jira test executions | ✅ Complete |
+| **Interview Machine** | Resume, mock interviews, ISTQB prep, GitHub Copilot | 🔄 In progress |
+
+---
+
+## 📁 Repository Structure
+
+```
+PLAYWRIGHT-bootcamp/
+├── pages/                     # 17 Page Object Models
+│   ├── SecureBankLoginPage.ts
+│   ├── SecureBankDashboardPage.ts
+│   ├── SecureBankTransactionPage.ts
+│   └── ...                    # e-commerce, booking, Parabank POMs
+│
+├── tests/bootcamp/            # Full test suite (Day 1 to present)
+│   ├── day32_securebank_e2e.spec.ts   # Portfolio centerpiece
+│   └── ...
+│
+├── tests/api/                 # API test suite (DummyJSON)
+│   ├── BAS-4-auth-happy-path.spec.ts
+│   ├── BAS-6-auth-sql-injection.spec.ts
+│   └── ...
+│
+├── helpers/
+│   └── testData.ts            # Faker.js data factory, no hardcoded values
+│
+├── .github/workflows/
+│   └── playwright.yml         # CI/CD pipeline (push → test → Xray → Jira)
+│
+├── CLAUDE.md                  # Coding standards enforced on every file
+├── MASTER_PLAN.md             # Full bootcamp roadmap
+├── QA_AUDIT_LESSONS.md        # 15 real lessons from AI code auditing
+└── INTERVIEW_PRACTICE.md      # Mock interview sessions and answers
+```
+
+---
+
 ## 🎯 What This Project Demonstrates
 
 | Skill | How It's Demonstrated |
@@ -120,6 +169,8 @@ on: push (main)
 ```
 
 Credentials managed via GitHub Secrets. Never exposed in source code.
+
+![CI Pipeline Green](docs/ci-pipeline-green.png)
 
 ---
 
