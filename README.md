@@ -170,7 +170,7 @@ on: push (main)
 
 Credentials managed via GitHub Secrets. Never exposed in source code.
 
-![CI Pipeline Green](docs/ci-pipeline-green.png)
+![Jira Test Execution — 100% green after CI push](docs/jira-execution-green.png)
 
 ---
 
