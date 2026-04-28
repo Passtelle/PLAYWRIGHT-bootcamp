@@ -1,220 +1,161 @@
-# AI-Driven QA Architect Bootcamp
+# QA Automation Portfolio
 
-**Author:** Ingrid | Senior QA Engineer → QA Architect
-**Duration:** 10 weeks | 8–10 hours/day
-**Stack:** Playwright · TypeScript · Postman · GitHub Actions · Claude Code
-**Status:** 🟢 Active — Week 4 (API Testing)
+[![Playwright Tests](https://github.com/Passtelle/PLAYWRIGHT-bootcamp/actions/workflows/playwright.yml/badge.svg)](https://github.com/Passtelle/PLAYWRIGHT-bootcamp/actions/workflows/playwright.yml)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ingridbordin)
+
+![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Jira](https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=jira&logoColor=white)
+![Claude Code](https://img.shields.io/badge/Claude_Code-D4A574?style=for-the-badge&logo=anthropic&logoColor=white)
+![GitHub Copilot](https://img.shields.io/badge/GitHub_Copilot-000000?style=for-the-badge&logo=github&logoColor=white)
+
+> 13+ years at IBM Security & Fiserv — enterprise QA instinct, rebuilt with a modern AI-first automation stack.
 
 ---
 
-## About This Repository
+## What This Project Demonstrates
 
-This repository documents my journey from Senior QA Engineer (15 years at IBM and Fiserv) to modern **AI-Driven QA Architect** — rebuilt from the ground up using Playwright, TypeScript, and AI-assisted workflows.
+| Skill | How It's Demonstrated |
+|-------|----------------------|
+| **E2E Test Automation** | SecureBank banking flow: login → deposit → balance verified in CI |
+| **API Testing** | DummyJSON: 4 layers (happy / negative / boundary / security) in Postman + Playwright TypeScript |
+| **CI/CD Pipeline** | GitHub Actions: push → test → JUnit XML → Xray upload → Jira updated automatically |
+| **Page Object Model** | 17 POMs across banking, e-commerce, booking, and API test apps |
+| **AI-Augmented QA** | Claude Code + Gemini Judge + GitHub Copilot multi-agent orchestration |
+| **Test Management** | Jira/Xray: Gherkin BDD test cases linked to live CI executions |
+| **Security Testing Mindset** | SQL injection, boundary analysis, auth token validation in API suite |
 
-After a 10-year career gap, I returned to tech and built this bootcamp myself with the help of an AI team. Every commit is real work. Every test reflects a real concept learned and applied.
+---
 
-This is not a tutorial clone. This is a working portfolio.
+## Portfolio Centerpiece — SecureBank E2E Suite
+
+Full end-to-end banking flow running automatically on every push:
+
+```
+Push to GitHub
+     ↓
+GitHub Actions triggers
+     ↓
+Playwright runs SecureBank E2E (login → deposit → balance verified)
+     ↓
+JUnit XML generated
+     ↓
+Xray API upload → Test Execution auto-created in Jira BAS project
+```
+
+**3 Page Object Models built for this suite:**
+
+```
+pages/
+├── SecureBankLoginPage.ts       → All Gold locators (data-testid)
+├── SecureBankDashboardPage.ts   → Reads live balance and account stats
+└── SecureBankTransactionPage.ts → Handles Radix UI comboboxes (click + getByRole)
+```
+
+Key technical decisions:
+- Radix UI custom dropdowns require `.click()` then `getByRole('option')` — not `selectOption()`
+- Dynamic account IDs fixed with `selectOption({ label: /Primary Savings/ })` — RegExp partial match stable after every deposit
+- Client-side SPA navigation used for balance check — preserves React state vs hard reload
+
+---
+
+## Test Suites
+
+### UI Testing — SecureBank Banking App
+
+| Test | Type | Status |
+|------|------|--------|
+| Login + deposit updates total balance | E2E Happy Path | ✅ Passing in CI |
+
+**Site:** [qaplayground.com/bank](https://www.qaplayground.com/bank) — Next.js banking simulation with real `data-testid` attributes throughout.
+
+### API Testing — DummyJSON
+
+| Test File | Layer | What It Covers |
+|-----------|-------|----------------|
+| `BAS-4-auth-happy-path.spec.ts` | Happy Path | POST /auth/login → 200 + accessToken |
+| `BAS-9-auth-missing-password.spec.ts` | Negative | Empty password → 400 |
+| `BAS-10-auth-boundary-username.spec.ts` | Boundary | 128-char username via `'a'.repeat(128)` |
+| `BAS-6-auth-sql-injection.spec.ts` | Security | SQL injection → no auth bypass, no 500 error |
+
+All 4 layers covered: Happy Path → Negative → Boundary → Security. Designed to mirror the enterprise API coverage approach used at IBM and Fiserv.
+
+---
+
+## CI/CD Pipeline
+
+Every push to `main` triggers the full pipeline:
+
+```yaml
+on: push (main)
+  → npm ci
+  → npx playwright install --with-deps
+  → Run SecureBank E2E (Chromium)
+  → Generate JUnit XML report
+  → Upload results to Xray Cloud API
+  → Test Execution auto-created in Jira BAS project
+```
+
+Credentials managed via GitHub Secrets — never exposed in source code.
 
 ---
 
 ## Tech Stack
 
-| Tool | Purpose |
-|------|---------|
-| Playwright 1.58.1 | UI and API test automation |
-| TypeScript (strict mode) | Type-safe test architecture |
-| Faker.js | Dynamic test data generation |
-| Postman + DummyJSON | API testing manual layer |
-| dotenv | Secure credentials management |
-| GitHub Actions | CI/CD pipeline (Week 5) |
-| Claude Code | AI-assisted development and auditing |
-
----
-
-## Repository Structure
-
-```
-├── pages/                    # Page Object Models (POM)
-│   ├── LoginPage.ts
-│   ├── ParabankLoginPage.ts
-│   ├── ParabankRegisterPage.ts
-│   ├── ParabankOpenAccountPage.ts
-│   ├── ProductPage.ts
-│   ├── BookingPage.ts
-│   └── ...
-│
-├── tests/bootcamp/           # Test suite (Day 1 → present)
-│   ├── day1_register.spec.ts
-│   ├── day2_loop_users.spec.ts
-│   ├── day3_search_products.spec.ts
-│   ├── ...
-│   ├── day16_master_booking.spec.ts
-│   ├── parabank_login.spec.ts
-│   └── parabank_register.spec.ts
-│
-├── helpers/
-│   └── testData.ts           # Faker.js data factory
-│
-├── memory/                   # AI team knowledge base
-│   ├── MEMORY.md
-│   └── *.md
-│
-├── CLAUDE.md                 # Coding standards enforced on every file
-├── MASTER_PLAN.md            # Full bootcamp roadmap
-├── QA_AUDIT_LESSONS.md       # 15 real lessons caught during AI auditing
-├── INTERVIEW_PRACTICE.md     # 9 interview prep sessions
-└── playwright.config.ts
-```
-
----
-
-## Bootcamp Progress
-
-### Week 1 — Foundation ✅
-- Playwright + TypeScript setup
-- Async/await mental model
-- Locators: `getByRole`, `getByPlaceholder`, `getByLabel`
-- First loop-driven test (data-driven pattern)
-- Git fundamentals for QA professionals
-
-### Week 2 — Playwright Architecture ✅
-- Page Object Model (POM) from scratch
-- Fixtures and test hooks (`beforeEach`, `afterEach`)
-- AI-generated test auditing workflow
-- Multi-site test coverage: ecommerce, booking, banking apps
-
-### Week 3 — AI Prompt Engineering + Parabank ✅
-- Structured prompt templates for test generation (CLAUDE.md)
-- MCP Server setup (SQLite, filesystem tools)
-- Three-role AI team: Human Architect + Claude Code + Gemini Judge
-- Parabank banking app: login, registration, account management POMs
-- Faker.js data factory — eliminated hardcoded test data
-- Production-quality 3-test registration suite (happy/negative/edge)
-
-### Week 4 — API Testing ✅ (in progress)
-- Postman manual lab: GET, POST, Bearer token auth, status codes
-- DummyJSON platform: 208 users, real auth flow, full CRUD
-- 9 interview sessions covering full 4-layer API testing answer
-- Pancake Rule: isolated `pm.test` blocks, never nested
-- Next: Playwright API automation (translating Postman → TypeScript)
-
-### Week 5 — CI/CD with GitHub Actions ⏳
-### Week 6 — Advanced Patterns + LinkedIn Automation ⏳
-### Week 7 — Performance + Accessibility Testing ⏳
-### Week 8 — ISTQB Foundation Exam Prep ⏳
-### Week 9–10 — Job Applications (5/day) ⏳
-
----
-
-## Key Patterns Implemented
-
-### Page Object Model (POM)
-All UI interactions are encapsulated in POM classes. Tests never contain raw selectors.
-
-```typescript
-// pages/ParabankLoginPage.ts
-export class ParabankLoginPage {
-  readonly usernameInput: Locator;
-  readonly passwordInput: Locator;
-  readonly loginButton: Locator;
-
-  constructor(page: Page) {
-    this.usernameInput = page.getByPlaceholder(/username/i);
-    this.passwordInput = page.getByPlaceholder(/password/i);
-    this.loginButton = page.getByRole('button', { name: /log in/i });
-  }
-
-  async login(username: string, password: string): Promise<void> {
-    await this.usernameInput.fill(username);
-    await this.passwordInput.fill(password);
-    await this.loginButton.click();
-  }
-}
-```
-
-### Data Factory Pattern (Faker.js)
-No hardcoded test data. Every test run generates fresh, unique users.
-
-```typescript
-// helpers/testData.ts
-export function generateUser(): UserData {
-  return {
-    username: `user_${Date.now()}`,
-    password: 'SecurePass1!',
-    firstName: faker.person.firstName(),
-    lastName: faker.person.lastName(),
-    email: faker.internet.email(),
-    ssn: faker.string.numeric(9),
-    phone: faker.phone.number()
-  };
-}
-```
-
-### Test Structure Standard
-Every test follows a consistent 3-section structure:
-
-```typescript
-test('register new user - happy path', async ({ page }) => {
-  // 🏗️ THE PLAN — data and variables
-  const user = generateUser();
-  const registerPage = new ParabankRegisterPage(page);
-
-  // 🎬 THE WORK — actions
-  await page.goto(URL);
-  await registerPage.register(user);
-
-  // ✅ THE CHECK — assertions
-  await expect(page.getByText(/your account was created/i)).toBeVisible();
-});
-```
+| Category | Tools |
+|----------|-------|
+| **Test Automation** | Playwright 1.58.1, TypeScript (strict mode) |
+| **API Testing** | Postman, DummyJSON, Playwright `request` fixture |
+| **Test Data** | Faker.js — dynamic data, never hardcoded |
+| **CI/CD** | GitHub Actions |
+| **Test Management** | Jira, Xray (BDD/Gherkin + JUnit XML import) |
+| **AI Tools** | Claude Code, GitHub Copilot, Gemini (Judge LLM) |
+| **Security** | dotenv — credentials always in secrets vault |
 
 ---
 
 ## Coding Standards
 
-All code in this repository follows strict standards documented in [`CLAUDE.md`](./CLAUDE.md):
+All code follows strict standards documented in [`CLAUDE.md`](./CLAUDE.md):
 
 - **No `any` type** — explicit TypeScript types everywhere
-- **No hardcoded timeouts** — state-based waits only
+- **No hardcoded timeouts** — state-based waits only (`waitFor`, `toBeVisible`)
 - **No assertions in POMs** — POMs act, tests assert
-- **RegExp with `/i` flag** for all text assertions
-- **Explicit method parameters** — no optional defaults hiding intent
-- **`getByRole` / `getByPlaceholder` first** — no XPath, no generic CSS
+- **Locator priority** — Gold (`data-testid`) > Silver (`getByRole`) > Bronze (`getByPlaceholder`)
+- **RegExp with `/i` flag** for all text assertions — never exact string matching
+- **Explicit method parameters** — no optional defaults hiding test intent
+- **3-section test structure** — `// THE PLAN / THE WORK / THE CHECK`
 
----
+Every AI-generated file passes a three-role audit before merge:
+1. **Claude Code** — implements following CLAUDE.md standards
+2. **Gemini** — independent auditor, flags violations
+3. **Human Architect** — final approval
 
-## AI Audit System
-
-Every AI-generated file is audited before approval using a three-role model:
-
-1. **Human Architect (me)** — defines requirements, reviews output, approves
-2. **Claude Code** — implements code following CLAUDE.md standards
-3. **Gemini** — independent auditor, flags violations before human approval
-
-15 real lessons learned from this process are documented in [`QA_AUDIT_LESSONS.md`](./QA_AUDIT_LESSONS.md).
-
----
-
-## Interview Preparation
-
-9 structured interview sessions documented in [`INTERVIEW_PRACTICE.md`](./INTERVIEW_PRACTICE.md), covering:
-
-- Data Factory Pattern and parallel execution
-- API testing: GET vs POST, status codes, Bearer token auth
-- 401 vs 403, idempotency, contract testing
-- The complete 4-layer API testing answer
-- ISTQB vocabulary: error/defect/failure, verification/validation, BVA
+15 real audit lessons documented in [`QA_AUDIT_LESSONS.md`](./QA_AUDIT_LESSONS.md).
 
 ---
 
 ## About the Author
 
-Senior QA Engineer with 15 years of experience at IBM and Fiserv, specializing in enterprise software quality across financial services. Returning to tech with a focus on modern AI-driven automation architecture.
+I spent 13+ years testing complex applications at **IBM Internet Security Systems** and **Fiserv** — antivirus engines, IDS/IPS systems, firewalls, and financial web platforms. I led offshore QA teams, built test departments from scratch, and performed penetration testing on financial applications using Metasploit.
 
-**Background:** Manual QA → Test automation → AI-assisted QA architecture
-**Target:** QA Architect role combining 15 years of QA instinct with modern tooling
-**Interested in:** Fintech · Blockchain/Web3 QA · AI-driven testing workflows
+After a career break, I returned with one goal: become the kind of QA engineer that modern FinTech teams actually need. I spent several months building this portfolio — 8 to 10 hours a day — using an AI-first workflow I believe represents where the industry is heading.
+
+During my break I also built **DigitPilot** — an AI-powered crypto trading education and simulation platform ([digitpilot.io](https://digitpilot.io)), designed in Figma and prototyped using Claude, Gemini, and Vercel. It reflects both 3 years of active crypto trading experience and a deep interest in FinTech and blockchain QA.
+
+**What I bring:**
+- Enterprise security and financial QA instinct (IBM + Fiserv)
+- Modern automation stack: Playwright, TypeScript, CI/CD, Jira/Xray
+- AI-first testing approach: directing AI tools, auditing AI-generated code, Judge LLM strategies
+- Domain knowledge: FinTech, cybersecurity, crypto/blockchain
+- Bilingual: English and French
+
+**Looking for:** Senior QA Engineer at a FinTech or blockchain startup.
+
+[![LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ingridbordin)
 
 ---
 
-*Built with Playwright, TypeScript, and a lot of coffee. ☕*
+*Built with Playwright, TypeScript, Claude Code, and a lot of determination. Every commit is real work.*
