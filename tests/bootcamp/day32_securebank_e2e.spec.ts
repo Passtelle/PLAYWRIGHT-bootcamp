@@ -34,8 +34,8 @@ test.describe('SecureBank E2E - Deposit Flow', () => {
 
     // ✅ THE CHECK (Assertions)
     await expect(page).toHaveURL(/\/bank\/dashboard/i);
-    await expect(dashboardPage.accountsCount).toContainText(/2/);
-    await expect(dashboardPage.totalBalance).toContainText(/8,000/);
+    await expect(dashboardPage.accountsCount).toContainText(/2/i);
+    await expect(dashboardPage.totalBalance).toContainText(/8,000/i);
   });
 
   test('Test 2 - Negative Path: Submit deposit with empty amount', async ({ page }) => {
