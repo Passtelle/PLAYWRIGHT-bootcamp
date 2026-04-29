@@ -186,7 +186,7 @@ on: push (main)
 
 Credentials managed via GitHub Secrets. Never exposed in source code.
 
-![Jira Test Execution — 100% green after CI push](docs/jira-execution-green.png)
+![Jira Test Execution — 2 tests passing after CI push](docs/jira-execution-green2.png)
 
 ---
 
