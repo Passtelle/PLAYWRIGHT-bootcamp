@@ -40,12 +40,13 @@ During my break I also designed and prototyped **DigitPilot**, an AI-powered cry
 
 | Certification | Issuer | Date | Verify |
 |--------------|--------|------|--------|
-| [Claude Code in Action](https://verify.skilljar.com/c/xyjoczkwcek9) | Anthropic | Mar 2026 | [xyjoczkwcek9](https://verify.skilljar.com/c/xyjoczkwcek9) |
-| [Model Context Protocol: Advanced Topics](https://verify.skilljar.com/c/wt8xrbgsvq5r) | Anthropic | Mar 2026 | [wt8xrbgsvq5r](https://verify.skilljar.com/c/wt8xrbgsvq5r) |
-| [Introduction to Model Context Protocol](https://verify.skilljar.com/c/ecbtch6qi652) | Anthropic | Mar 2026 | [ecbtch6qi652](https://verify.skilljar.com/c/ecbtch6qi652) |
-| [Introduction to Agent Skills](https://verify.skilljar.com/c/db8ee6b87iwy) | Anthropic | Mar 2026 | [db8ee6b87iwy](https://verify.skilljar.com/c/db8ee6b87iwy) |
-| [AI Fluency Framework and Foundations](https://verify.skilljar.com/c/d5kowr6ry8cr) | Anthropic | Mar 2026 | [d5kowr6ry8cr](https://verify.skilljar.com/c/d5kowr6ry8cr) |
-| [Claude 101](https://verify.skilljar.com/c/a25jqscpi26v) | Anthropic | Mar 2026 | [a25jqscpi26v](https://verify.skilljar.com/c/a25jqscpi26v) |
+| [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/xyjoczkwcek9) |
+| [Claude Code 101](https://anthropic.skilljar.com/claude-code-101) | Anthropic | *(in progress)* | |
+| [Model Context Protocol: Advanced Topics](https://anthropic.skilljar.com/model-context-protocol-advanced-topics) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/wt8xrbgsvq5r) |
+| [Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/ecbtch6qi652) |
+| [Introduction to Agent Skills](https://anthropic.skilljar.com/introduction-to-agent-skills) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/db8ee6b87iwy) |
+| [AI Fluency Framework and Foundations](https://anthropic.skilljar.com/ai-fluency-framework-foundations) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/d5kowr6ry8cr) |
+| [Claude 101](https://anthropic.skilljar.com/claude-101) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/a25jqscpi26v) |
 | ISTQB Foundation Level | ISTQB | *(in progress)* | |
 
 ---
