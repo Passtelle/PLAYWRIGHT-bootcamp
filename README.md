@@ -36,6 +36,20 @@ During my break I also designed and prototyped **DigitPilot**, an AI-powered cry
 
 ---
 
+## 🏅 Certifications
+
+| Certification | Issuer | Date | Verify |
+|--------------|--------|------|--------|
+| [Claude Code in Action](https://verify.skilljar.com/c/xyjoczkwcek9) | Anthropic | Mar 2026 | [xyjoczkwcek9](https://verify.skilljar.com/c/xyjoczkwcek9) |
+| [Model Context Protocol: Advanced Topics](https://verify.skilljar.com/c/wt8xrbgsvq5r) | Anthropic | Mar 2026 | [wt8xrbgsvq5r](https://verify.skilljar.com/c/wt8xrbgsvq5r) |
+| [Introduction to Model Context Protocol](https://verify.skilljar.com/c/ecbtch6qi652) | Anthropic | Mar 2026 | [ecbtch6qi652](https://verify.skilljar.com/c/ecbtch6qi652) |
+| [Introduction to Agent Skills](https://verify.skilljar.com/c/db8ee6b87iwy) | Anthropic | Mar 2026 | [db8ee6b87iwy](https://verify.skilljar.com/c/db8ee6b87iwy) |
+| [AI Fluency Framework and Foundations](https://verify.skilljar.com/c/d5kowr6ry8cr) | Anthropic | Mar 2026 | [d5kowr6ry8cr](https://verify.skilljar.com/c/d5kowr6ry8cr) |
+| [Claude 101](https://verify.skilljar.com/c/a25jqscpi26v) | Anthropic | Mar 2026 | [a25jqscpi26v](https://verify.skilljar.com/c/a25jqscpi26v) |
+| ISTQB Foundation Level | ISTQB | *(in progress)* | |
+
+---
+
 ## 🗺️ The Journey
 
 8 to 10 hours a day since **February 2026**. Every phase built on the last. Every concept tested, audited, and committed to the repo.
