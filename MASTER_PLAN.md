@@ -499,7 +499,7 @@ Shifted from "E2E booking suite" to **AI Auditing focus** after discovering this
 - ✅ GitHub Copilot added to curriculum (Week 6)
 - ⏳ README rewrite — Day 36 (fresh start, full effort)
 
-**Week 5 Status: ✅ COMPLETED**
+\*\*Week 5 Status: ✅ COMPLETED\*\*\n\n---\n\n\*\*Day 36 Accomplishments (April 28, 2026):\*\*\n\n- ✅ README full rewrite — "QA Automation Portfolio" title, About at top, emojis, coffee line, no em-dashes\n- ✅ Journey phase table + repo structure tree added to README\n- ✅ Jira screenshot added (docs/jira-execution-green.png) — BAS-16 green execution bar\n- ✅ GitHub Copilot session — ghost suggestions confirmed, Copilot vs Claude Code mental model established\n- ✅ E2E suite refactored — beforeEach hook added, shared setup extracted from tests\n- ✅ Test 2 added — Negative Path: empty amount → "Please enter a valid amount"\n- ✅ Playwright trace viewer used to confirm real assertion (--trace on, --workers=1)\n- ✅ Discovered: input[type=number] rejects non-numeric at browser level — test concept pivot\n\n\*\*Day 37 Accomplishments (April 29, 2026):\*\*\n\n- ✅ Certifications section added to README — 6 Anthropic certs with course + verify links\n- ✅ Claude Code 101 + ISTQB Foundation Level listed as in progress\n- ✅ git checkout HEAD -- filename learned — restore single file from last commit\n- ✅ Docs updated (MASTER_PLAN, LESSONS, INTERVIEW_TIPS)\n\n\*\*Daily Routine (from Day 37 onwards):\*\*\n- 2 hours/day TypeScript review — morning warm-up before main session\n- Priority: beforeEach/hooks, let vs const, scope, async/await patterns\n\n\*\*Week 6 Status: 🔄 In Progress\*\*\n\n---
 
 **Day 29 Accomplishments (April 10, 2026):**
 

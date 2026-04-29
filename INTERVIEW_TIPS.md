@@ -1186,3 +1186,42 @@ _Interview questions will be added in Week 6_
 
 **Last Updated:** Week 1, Day 5  
 **Next Addition:** Day 6 - TypeScript interview questions
+
+---
+
+### **Q44: "What is a beforeEach hook and when would you use it in Playwright?"**
+
+**❌ Bad Answer:**
+
+> "It runs code before each test."
+
+**✅ Good Answer:**
+
+> "beforeEach is a Playwright hook that runs a setup block before every test in a describe group. I use it when multiple tests share the same starting state — like needing to be logged in or having the same POMs initialized. Instead of repeating that setup in every test, I put it in beforeEach and each test starts clean with the shared state already in place."
+
+**⭐ Great Answer:**
+
+> "beforeEach is how you enforce test independence while avoiding repetition. In our SecureBank E2E suite, every test needs to start logged in with the three POMs instantiated. Without beforeEach, I'd copy that setup into every test — and if the login URL changed, I'd fix it in ten places. With beforeEach, I fix it in one. The key architectural detail is scope: the POM variables are declared with `let` at the describe level so all tests can access them, and beforeEach reassigns them before each test with a fresh page instance. This means Test 1 and Test 2 never share state — each gets its own browser session, its own login, its own clean slate. That's test independence, and it's non-negotiable in production. I discovered this pattern when GitHub Copilot predicted Test 2's structure and assumed beforeEach already existed — it was right, and we refactored to match."
+
+---
+
+### **Q45: "How do you use GitHub Copilot? How is it different from Claude Code?"**
+
+**❌ Bad Answer:**
+
+> "Copilot writes my code for me automatically."
+
+**✅ Good Answer:**
+
+> "GitHub Copilot autocompletes code inline as I type, based on the context of my open files. Claude Code is a terminal-based agent that can reason about my entire repo, run commands, and build full files. They're complementary — Copilot is fast and inline, Claude Code is deliberate and architectural."
+
+**⭐ Great Answer:**
+
+> "I think of them as two different team members with different roles. Copilot lives in my editor and predicts what I'm about to type — it's pattern recognition at high speed. It reads my open files and continues my conventions. When I started typing `test('Test 2 - Negative`, Copilot immediately suggested the test name, the 3-section structure, and a plausible data variable — because it had read Test 1 and understood my naming conventions. That's context awareness, not just autocomplete. Claude Code is a different animal. It lives in the terminal, reads the entire repo, runs commands, reads error output, and reasons about architecture. I use Claude Code to design the building and Copilot to hand me the next brick while I'm laying them. The key skill isn't using either tool — it's knowing which one to reach for and how to verify what they produce. Copilot suggested a CSS class selector for the error message assertion. I rejected it and used the trace viewer to find the real element. That judgment is the QA engineer's job — the tools don't replace it."
+
+---
+
+**Last Updated:** Day 37 (April 29, 2026)
+**Next Addition:** Mock interview Q&A — behavioral questions, ISTQB vocabulary
+
+---

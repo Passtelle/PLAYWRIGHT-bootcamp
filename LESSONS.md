@@ -4002,3 +4002,155 @@ _Lessons will be added as we progress_
 _Lessons will be added as we progress_
 
 ---
+
+---
+
+### **Day 36: beforeEach Hooks and Test Independence**
+
+**Date:** April 28, 2026
+**Status:** ✅ Completed
+
+#### **🎯 Key Lessons**
+
+**1. What is beforeEach and why does it exist?**
+
+When you have multiple tests that all need the same starting point (logged in, page loaded, POMs ready), you have two choices:
+
+- Copy/paste the setup into every test — works, but if something changes you fix it in 10 places
+- Put the setup in `beforeEach` — runs automatically before every test, one place to maintain
+
+`beforeEach` is Playwright's way of saying: "Before you run any test in this block, do this first."
+
+```typescript
+test.describe('SecureBank E2E', () => {
+  test.beforeEach(async ({ page }) => {
+    // This runs before Test 1, then again before Test 2, etc.
+    await loginPage.goto();
+    await loginPage.login('admin', 'admin123');
+  });
+
+  test('Test 1 - Happy Path', async ({ page }) => {
+    // Login already done. Jump straight to the unique steps.
+  });
+
+  test('Test 2 - Negative Path', async ({ page }) => {
+    // Login already done here too. Fresh page, fresh login.
+  });
+});
+```
+
+**2. let vs const for shared POM variables**
+
+`const` means: assigned once, never reassigned.
+`let` means: assigned now, can be reassigned later.
+
+`beforeEach` reassigns the POM variables before every test run. So they must be `let`, not `const`.
+
+```typescript
+// Declared at describe scope — visible to ALL tests inside
+let loginPage: SecureBankLoginPage;
+let dashboardPage: SecureBankDashboardPage;
+
+test.beforeEach(async ({ page }) => {
+  loginPage = new SecureBankLoginPage(page);     // reassigned each time
+  dashboardPage = new SecureBankDashboardPage(page);
+});
+```
+
+If you used `const` here, TypeScript would throw an error the second time beforeEach tried to assign it.
+
+**3. Scope: why declare outside beforeEach?**
+
+Variables declared inside `beforeEach` are trapped inside that block. Tests can't see them.
+Variables declared inside the `describe` block are visible to everything inside it — including `beforeEach` and all tests.
+
+```
+describe block
+  ├── let loginPage       ← visible to everything below
+  ├── beforeEach          ← fills loginPage in
+  ├── Test 1              ← can use loginPage ✅
+  └── Test 2              ← can use loginPage ✅
+```
+
+**4. Test independence — every test gets a fresh start**
+
+Playwright gives each test its own browser page. `beforeEach` runs on that fresh page before each test. This means:
+
+- Test 1 does not affect Test 2
+- If Test 1 fails, Test 2 still runs from a clean state
+- Tests can run in any order without breaking each other
+
+This is called **test independence** and it is non-negotiable in production test suites.
+
+**5. Parallel vs sequential execution**
+
+By default Playwright runs tests in parallel (multiple workers = multiple browser windows at once). To run tests one after the other so you can watch:
+
+```bash
+npx playwright test --workers=1   # sequential — one at a time
+npx playwright test --headed      # shows the browser window
+npx playwright test --trace on    # records every step for inspection
+```
+
+**6. git checkout HEAD -- filename**
+
+When you accidentally delete or overwrite a file, this restores it from the last commit:
+
+```bash
+git checkout HEAD -- tests/bootcamp/day32_securebank_e2e.spec.ts
+```
+
+`HEAD` = last commit. `--` separates the branch from the file path. Nothing is lost as long as it was committed.
+
+**7. input[type=number] rejects non-numeric input**
+
+Discovered during Test 2 development: the browser itself prevents typing `'abc'` into a number input. Playwright throws `Cannot type text into input[type=number]`. Always inspect the HTML element type before writing negative tests — the browser may already handle the validation before your code runs.
+
+---
+
+### **Day 37: Playwright Trace Viewer and Portfolio Documentation**
+
+**Date:** April 29, 2026
+**Status:** ✅ Completed
+
+#### **🎯 Key Lessons**
+
+**1. Playwright Trace Viewer — your black box recorder**
+
+The trace viewer records every single action your test takes: clicks, fills, navigations, assertions. After the run you open it in a browser and scrub through it frame by frame — like a flight recorder for your test.
+
+```bash
+npx playwright test --trace on       # records traces for all tests
+npx playwright show-trace trace.zip  # opens the viewer in your browser
+```
+
+Use it when:
+- A test passes but you're not sure what actually happened
+- You want to confirm what an error message looked like
+- You need to find the exact element locator from a live run
+
+**2. How we used it on Day 36**
+
+We ran Test 2 (empty amount submission) with `--trace on` to see what the SecureBank app actually showed. The trace revealed the exact error text: `"Please enter a valid amount"`. We then wrote the real assertion from that observation:
+
+```typescript
+await expect(page.getByText(/please enter a valid amount/i)).toBeVisible();
+```
+
+This is the correct workflow: run with trace, observe, then assert. Never guess what the app shows.
+
+**3. Revert File in VS Code**
+
+When VS Code shows a stale/cached version of a file:
+- Press `Ctrl + Shift + P`
+- Type `Revert File`
+- Press `Enter`
+
+Forces VS Code to reload the file from disk.
+
+---
+
+**Last Updated:** Day 37 (April 29, 2026)
+**Next Lesson:** TypeScript review — beforeEach, let/const, scope, async/await (2h/day morning routine)
+
+---
