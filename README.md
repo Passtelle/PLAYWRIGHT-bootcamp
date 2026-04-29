@@ -153,6 +153,7 @@ Key technical decisions:
 | Test | Type | Status |
 |------|------|--------|
 | Login + deposit updates total balance | E2E Happy Path | ✅ Passing in CI |
+| Submit deposit with empty amount shows validation error | E2E Negative Path | ✅ Passing in CI |
 
 **Site:** [qaplayground.com/bank](https://www.qaplayground.com/bank), a Next.js banking simulation with real `data-testid` attributes throughout.
 
