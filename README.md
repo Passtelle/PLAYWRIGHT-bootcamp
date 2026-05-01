@@ -15,22 +15,15 @@
 
 ---
 
-## 👋 About the Author
+## 👋 About Me
 
-I spent 13+ years testing complex applications at **IBM Internet Security Systems** and **Fiserv**: antivirus engines, IDS/IPS systems, firewalls, and financial web platforms. I led offshore QA teams, built test departments from scratch, and performed penetration testing on financial applications using Metasploit.
+Senior QA Engineer with 13 years of enterprise experience at IBM Internet Security Systems and Fiserv, where I tested security products against real threats and owned QA for regulated financial platforms. I introduced penetration testing where it didn't exist, led an offshore QA team, and built test infrastructure from scratch in regulated environments.
 
-After a career break, I returned with one goal: become the kind of QA engineer that modern FinTech teams actually need. I spent several months building this portfolio, 8 to 10 hours a day, using an AI-first workflow I believe represents where the industry is heading.
+I independently designed and built this portfolio from scratch using Playwright, TypeScript, GitHub Actions CI/CD, Jira/Xray, and a multi-agent LLM workflow — directing Claude Code and Gemini to generate, audit, and validate test automation across UI, API, and security layers.
 
-During my break I also designed and prototyped **DigitPilot**, an AI-powered crypto trading education and simulation platform ([digitpilot.io](https://digitpilot.io)), conceived in Figma and brought to life with Claude, Gemini, and Vercel. It reflects 3 years of active crypto trading experience and a deep interest in FinTech and blockchain QA.
+I also bring domain knowledge in FinTech and blockchain from 3 years of active crypto trading and designing **DigitPilot** ([digitpilot.io](https://digitpilot.io)), an AI-powered trading education platform.
 
-**What I bring:**
-- 🏦 Enterprise security and financial QA instinct (IBM + Fiserv)
-- 🤖 Modern automation stack: Playwright, TypeScript, CI/CD, Jira/Xray
-- 🧠 AI-first testing approach: directing AI tools, auditing AI-generated code, Judge LLM strategies
-- 🔐 Domain knowledge: FinTech, cybersecurity, crypto/blockchain
-- 🌍 Bilingual: English and French
-
-**Looking for:** Senior QA Engineer at a FinTech or blockchain startup.
+**Looking for:** Senior QA Engineer or QA Architect roles at FinTech, blockchain, or AI-driven companies. Hybrid or remote.
 
 [![LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ingridbordin)
 
@@ -41,7 +34,7 @@ During my break I also designed and prototyped **DigitPilot**, an AI-powered cry
 | Certification | Issuer | Date | Verify |
 |--------------|--------|------|--------|
 | [Claude Code in Action](https://anthropic.skilljar.com/claude-code-in-action) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/xyjoczkwcek9) |
-| [Claude Code 101](https://anthropic.skilljar.com/claude-code-101) | Anthropic | *(in progress)* | |
+| [Claude Code 101](https://anthropic.skilljar.com/claude-code-101) | Anthropic | Apr 2026 | [Certificate](https://verify.skilljar.com/c/b6d2ec4oi6wv) |
 | [Model Context Protocol: Advanced Topics](https://anthropic.skilljar.com/model-context-protocol-advanced-topics) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/wt8xrbgsvq5r) |
 | [Introduction to Model Context Protocol](https://anthropic.skilljar.com/introduction-to-model-context-protocol) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/ecbtch6qi652) |
 | [Introduction to Agent Skills](https://anthropic.skilljar.com/introduction-to-agent-skills) | Anthropic | Mar 2026 | [Certificate](https://verify.skilljar.com/c/db8ee6b87iwy) |
