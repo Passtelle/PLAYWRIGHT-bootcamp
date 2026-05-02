@@ -15,6 +15,8 @@ Senior QA Engineer with 13 years of enterprise experience at IBM Internet Securi
 
 CORE SKILLS
 
+Methodologies: Agile/Scrum, SDLC, sprint planning, risk-based testing, BDD, functional, regression, integration, UAT
+
 Test Automation: Playwright, TypeScript (strict mode), Page Object Model, GitHub Actions CI/CD, JUnit XML
 
 API Testing: REST APIs, Postman, Playwright request fixture
